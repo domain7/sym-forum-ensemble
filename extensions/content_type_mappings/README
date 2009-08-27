@@ -1,0 +1,31 @@
+Content Type Mappings
+------------------------------------
+
+Version: 1.0
+Author: Alistair Kearney (alistair@symphony21.com)
+Build Date: 30th April 2009
+Requirements: Latest Symphony Integration code.
+
+Allows more control over Frontend page content type mappings. Each mapping is 
+stored in the Symphony config file, and page type is matched against these mappings.
+
+
+[INSTALLATION]
+
+	* You must be running the latest Symphony code from the git Integration branch *
+
+	1. Enable the extension
+	2. Add content type mappings to your /manifest/config.php file with 
+	   the format 'TYPE' => 'CONTENT-TYPE', E.G.:
+
+			###### CONTENT-TYPE-MAPPINGS ######
+			'content-type-mappings' => array(
+				'xml' => 'text/xml; charset=utf-8',
+				'text' => 'text/plain; charset=utf-8',
+			),
+			########
+
+	3. If a page uses a type listed in the config, that appropriate content type will
+	   be set. Should more than one match be found, the last one encountered will be
+	   used.
+
