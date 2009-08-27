@@ -89,7 +89,7 @@
 					<xsl:otherwise>
 						<li><input name="username" title="username" value="username" class="clear-on-focus"/></li>
 						<li><input name="password" title="chipmonk" type="password" value="chipmonk" class="clear-on-focus"/></li>
-						<li><input id="submit" type="submit" name="member-action[login]" value="Log In"/></li>
+						<li><input name="redirect" type="hidden" value="{$root}/"/><input id="submit" type="submit" name="member-action[login]" value="Log In"/></li>
 						<li>or <a href="{$root}/members/new/">register an account</a></li>
 					</xsl:otherwise>
 				</xsl:choose>

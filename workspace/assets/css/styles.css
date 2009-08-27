@@ -408,6 +408,9 @@ form p.option input {
 	width: auto;
 	margin: 0 5px 0 0;
 }
+form p.option input[type="hidden"] {
+	display: none;
+}
 form p select {
 	display: block;
 	border: 1px solid #aaa;

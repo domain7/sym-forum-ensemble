@@ -26,7 +26,7 @@
 	<xsl:call-template name="pagination">
 	    <xsl:with-param name="pagination-element" select="forum-discussions/pagination" />
 	    <xsl:with-param name="display-number" select="'7'" />
-	    <xsl:with-param name="url" select="'/forum/$/'" />
+	    <xsl:with-param name="url" select="concat($root, '/forum/$/')" />
 	</xsl:call-template>
 </xsl:template>
 
@@ -53,7 +53,7 @@
 		<h3>Filters</h3>
 		<ul>
 			<li>
-				<a href="{$root}/" title="Filter discussions">All Discussions</a>
+				<a href="{$root}/" title="View all discussions">All Discussions</a>
 			</li>
 			<li>
 				<a href="{$root}/forum-filter/" title="Filter discussions">My Discussions</a>
@@ -81,6 +81,7 @@
 	    <xsl:with-param name="pagination-element" select="search-comments/pagination" />
 	    <xsl:with-param name="display-number" select="'7'" />
 	    <xsl:with-param name="url">
+	    	<xsl:value-of select="$root"/>
 	    	<xsl:text>/forum/?query=</xsl:text>
 	    	<xsl:value-of select="search-comments/query-string/@encoded"/> 
 	    	<xsl:text>&amp;pg=$</xsl:text>

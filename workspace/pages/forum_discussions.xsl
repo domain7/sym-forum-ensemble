@@ -15,7 +15,7 @@
 <xsl:template match="data" mode="side-panel">
 	<h3>Search</h3>
 	<div id="search">
-		<form method="get" action="/">
+		<form method="get" action="{$root}/">
 			<fieldset>
 				<input id="query" class="clear-on-focus" name="query" type="text" title="Search" value="" />
 				<button type="submit" value="Search">Search</button>
@@ -53,6 +53,7 @@
 	    <xsl:with-param name="pagination-element" select="pagination" />
 	    <xsl:with-param name="display-number" select="'7'" />
 	    <xsl:with-param name="url">
+	    	<xsl:value-of select="$root"/>
 	    	<xsl:text>/forum/discussions/</xsl:text>
 	    	<xsl:value-of select="$discussion-id"/>
 	    	<xsl:text>/$/</xsl:text>
@@ -78,7 +79,7 @@
 				<input name="fields[created-by]" type="hidden" value="{$member/@id}"/>
 				<input name="redirect" type="hidden">
 					<xsl:attribute name="value">
-						<xsl:value-of select="concat('/forum/discussions/', $discussion-id, '/')"/>
+						<xsl:value-of select="concat($root, '/forum/discussions/', $discussion-id, '/')"/>
 						<xsl:choose>
 							<xsl:when test="/data/forum-comments/pagination/@total-entries mod 20 = 0">
 								<xsl:value-of select="/data/forum-comments/pagination/@total-pages + 1"/>

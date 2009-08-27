@@ -136,7 +136,7 @@
 					
 					if($action != 'mark-all-as-read' && $isLoggedIn) $Forum->Discussion->updateRead($members->Member->get('id'), $discussion_id);
 					
-					if($success) redirect(URL . preg_replace('/\?.*$/i', NULL, $_SERVER['REQUEST_URI']));
+					if($success) redirect(preg_replace('/\?.*$/i', NULL, $_SERVER['REQUEST_URI']));
 					else{
 						$result->setAttributeArray(array('result' => 'fail', 'type' => $action));
 						$result->appendChild(new XMLElement('message', 'not authorised'));

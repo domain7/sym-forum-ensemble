@@ -26,9 +26,9 @@
 				<p>
 					<label for="location">Country</label>
 					<select id="location" name="fields[location]">
-						<xsl:for-each select="/data/countries/item">
-							<option value="{@code}">
-								<xsl:if test="@code = /data/members-edit/entry/location or @code-3-char = /data/members-edit/entry/location">
+						<xsl:for-each select="/data/location/item">
+							<option value="{@value}">
+								<xsl:if test="@value = /data/members-edit/entry/location">
 									<xsl:attribute name="selected">selected</xsl:attribute>
 								</xsl:if>
 								<xsl:value-of select="."/>

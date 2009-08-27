@@ -32,7 +32,7 @@
 	<xsl:call-template name="pagination">
 	    <xsl:with-param name="pagination-element" select="forum-discussions/pagination" />
 	    <xsl:with-param name="display-number" select="'7'" />
-	    <xsl:with-param name="url" select="'/forum/forum-filter/$/'" />
+	    <xsl:with-param name="url" select="concat($root, '/forum/forum-filter/$/')" />
 	</xsl:call-template>
 </xsl:template>
 

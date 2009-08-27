@@ -45,7 +45,7 @@
 				<label for="location">Country</label>
 				<select id="location" name="fields[location]">
 					<xsl:for-each select="location/item">
-						<option value="{@code}">
+						<option value="{@value}">
 							<xsl:choose>
 								<xsl:when test="@value = 'AUS'">
 									<xsl:attribute name="selected">selected</xsl:attribute>
