@@ -56,7 +56,7 @@
 				<a href="{$root}/" title="View all discussions">All Discussions</a>
 			</li>
 			<li>
-				<a href="{$root}/forum-filter/" title="Filter discussions">My Discussions</a>
+				<a href="{$root}/forum/forum-filter/" title="Filter discussions">My Discussions</a>
 			</li>
 		</ul>
 	</xsl:if>
