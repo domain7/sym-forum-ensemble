@@ -213,6 +213,8 @@ Symphony Team';
 		$conf['forum']['discussion-last-post-field'] = '143';
 		$conf['forum']['discussion-last-active-field'] = '119';
 		$conf['forum']['comment-discussion-link-field'] = '117';
+		$conf['forum']['unread-cutoff-field'] = '134';
+		$conf['forum']['comment-creation-date-field'] = '134';
 		$conf['maintenance_mode']['enabled'] = 'no';
 		$conf['content-type-mappings']['xml'] = 'text/xml; charset=utf-8';
 		$conf['content-type-mappings']['text'] = 'text/plain; charset=utf-8';
