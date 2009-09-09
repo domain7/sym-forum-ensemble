@@ -65,7 +65,12 @@
 				'tbl_pages',
 				'tbl_pages_types',
 				'tbl_sections',
-				'tbl_sections_association'			
+				'tbl_sections_association',
+				'tbl_forum_read_discussions',
+				'tbl_members_login_tokens',
+				'tbl_members_roles',
+				'tbl_members_roles_event_permissions',
+				'tbl_members_roles_forbidden_pages'
 			);
 			
 			## Grab the schema
@@ -82,7 +87,12 @@
 				'tbl_pages',
 				'tbl_pages_types',
 				'tbl_sections',
-				'tbl_sections_association'			
+				'tbl_sections_association',
+				'tbl_forum_read_discussions',
+				'tbl_members_login_tokens',
+				'tbl_members_roles',
+				'tbl_members_roles_event_permissions',
+				'tbl_members_roles_forbidden_pages'
 			);			
 			
 			## Field data and entry data schemas needs to be apart of the workspace sql dump

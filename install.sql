@@ -164,7 +164,7 @@ CREATE TABLE `tbl_fields_number` (
   `field_id` int(11) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `field_id` (`field_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- *** STRUCTURE: `tbl_fields_select` ***
 DROP TABLE IF EXISTS `tbl_fields_select`;
@@ -183,12 +183,12 @@ DROP TABLE IF EXISTS `tbl_fields_selectbox_link`;
 CREATE TABLE `tbl_fields_selectbox_link` (
   `id` int(11) unsigned NOT NULL auto_increment,
   `field_id` int(11) unsigned NOT NULL,
-  `allow_multiple_selection` enum('yes','no') collate utf8_unicode_ci NOT NULL default 'no',
-  `related_field_id` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `allow_multiple_selection` enum('yes','no') NOT NULL default 'no',
+  `related_field_id` varchar(255) NOT NULL,
   `limit` int(4) unsigned NOT NULL default '20',
   PRIMARY KEY  (`id`),
   KEY `field_id` (`field_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 -- *** STRUCTURE: `tbl_fields_taglist` ***
 DROP TABLE IF EXISTS `tbl_fields_taglist`;
@@ -309,3 +309,58 @@ CREATE TABLE `tbl_sections_association` (
   PRIMARY KEY  (`id`),
   KEY `parent_section_id` (`parent_section_id`,`child_section_id`,`child_section_field_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- *** STRUCTURE: `tbl_forum_read_discussions` ***
+DROP TABLE IF EXISTS `tbl_forum_read_discussions`;
+CREATE TABLE `tbl_forum_read_discussions` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `member_id` int(11) unsigned NOT NULL,
+  `discussion_id` int(11) unsigned NOT NULL,
+  `last_viewed` int(11) unsigned NOT NULL,
+  `comments` int(11) unsigned NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `member_id` (`member_id`,`discussion_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- *** STRUCTURE: `tbl_members_login_tokens` ***
+DROP TABLE IF EXISTS `tbl_members_login_tokens`;
+CREATE TABLE `tbl_members_login_tokens` (
+  `member_id` int(11) unsigned NOT NULL,
+  `token` varchar(8) NOT NULL,
+  `expiry` int(11) NOT NULL,
+  PRIMARY KEY  (`member_id`),
+  KEY `token` (`token`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- *** STRUCTURE: `tbl_members_roles` ***
+DROP TABLE IF EXISTS `tbl_members_roles`;
+CREATE TABLE `tbl_members_roles` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `name` varchar(60) NOT NULL,
+  `email_subject` varchar(255) default NULL,
+  `email_body` longtext,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- *** STRUCTURE: `tbl_members_roles_event_permissions` ***
+DROP TABLE IF EXISTS `tbl_members_roles_event_permissions`;
+CREATE TABLE `tbl_members_roles_event_permissions` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `role_id` int(11) unsigned NOT NULL,
+  `event` varchar(50) NOT NULL,
+  `action` varchar(60) NOT NULL,
+  `allow` enum('yes','no') NOT NULL default 'no',
+  PRIMARY KEY  (`id`),
+  KEY `role_id` (`role_id`,`event`,`action`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- *** STRUCTURE: `tbl_members_roles_forbidden_pages` ***
+DROP TABLE IF EXISTS `tbl_members_roles_forbidden_pages`;
+CREATE TABLE `tbl_members_roles_forbidden_pages` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `role_id` int(11) unsigned NOT NULL,
+  `page_id` int(11) unsigned NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `role_id` (`role_id`,`page_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
