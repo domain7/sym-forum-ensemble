@@ -19,7 +19,7 @@
 		}
 
 		public static function getSource(){
-			return '40';
+			return '1';
 		}
 
 		public static function documentation(){
