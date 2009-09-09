@@ -193,7 +193,7 @@
 
 Here is your super secret code, which you\'ll need to reset your password: {$member-token}
 
-Just go to {$root}/members/reset-pass/code/ and enter said code to get a new password. The code will expire in one hour, so if you miss your window, simply head to the above link and click the \\\\"Resend Email\\\\" button to get a new one.
+Just go to {$root}/members/reset-pass/code/ and enter said code to get a new password. The code will expire in one hour, so if you miss your window, simply head to the above link and click the \\\\\"Resend Email\\\\\" button to get a new one.
 
 If you have any trouble, please email us at support@symphony-cms.com and we\'ll do our best to help.
 
@@ -202,6 +202,18 @@ Regards,
 Symphony Team';
 		$conf['members']['email_address_field_id'] = '4';
 		$conf['members']['timezone_offset_field_id'] = '8';
+		$conf['forum']['discussion-section'] = '2';
+		$conf['forum']['comment-section'] = '3';
+		$conf['forum']['member-link-field'] = '20';
+		$conf['forum']['discussion-last-post-field'] = '13';
+		$conf['forum']['discussion-last-active-field'] = '14';
+		$conf['forum']['unread-cutoff-field'] = '19';
+		$conf['forum']['pinned-field'] = '15';
+		$conf['forum']['locked-field'] = '16';
+		$conf['forum']['comment-discussion-link-field'] = '18';
+		$conf['forum']['comment-member-link-field'] = '20';
+		$conf['forum']['comment-creation-date-field'] = '19';
+		$conf['maintenance_mode']['enabled'] = 'no';
 	
 		return $conf;
 	
