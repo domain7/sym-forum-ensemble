@@ -14,6 +14,11 @@
 		public $dsParamFILTERS = array(
 				'id' => '{$comment-id}',
 		);
+		
+		public $dsParamINCLUDEDELEMENTS = array(
+				'comment'
+		);
+
 		public function __construct(&$parent, $env=NULL, $process_params=true){
 			parent::__construct($parent, $env, $process_params);
 			$this->_dependencies = array();
@@ -23,15 +28,15 @@
 			return array(
 					 'name' => 'Forum: Code Source',
 					 'author' => array(
-							'name' => 'Stephen Bau',
-							'website' => 'http://home/sym/forum-zero',
-							'email' => 'stephen@domain7.com'),
+							'name' => 'Allen Chang',
+							'website' => 'http://symphony.local:8888',
+							'email' => 'allen@symphony21.com'),
 					 'version' => '1.0',
-					 'release-date' => '2009-09-09T23:42:23+00:00');	
+					 'release-date' => '2009-04-29T18:45:49+00:00');	
 		}
 		
 		public function getSource(){
-			return '1';
+			return '3';
 		}
 		
 		public function allowEditorToParse(){
