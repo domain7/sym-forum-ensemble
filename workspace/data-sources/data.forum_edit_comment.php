@@ -39,7 +39,7 @@
 		}
 		
 		function getSource(){
-			return '39';
+			return '3';
 		}
 		
 		function allowEditorToParse(){
@@ -47,7 +47,7 @@
 		}
 		
 		function grab(&$param_pool){
-			$discussionID = (int)$this->_Parent->Database->fetchVar('relation_id', 0, "SELECT `relation_id` FROM `tbl_entries_data_117` WHERE `entry_id` = ".(int)$this->dsParamFILTERS['id']." LIMIT 1");
+			$discussionID = (int)$this->_Parent->Database->fetchVar('relation_id', 0, "SELECT `relation_id` FROM `tbl_entries_data_18` WHERE `entry_id` = ".(int)$this->dsParamFILTERS['id']." LIMIT 1");
 
 			$xml = new XMLElement($this->dsParamROOTELEMENT);
 

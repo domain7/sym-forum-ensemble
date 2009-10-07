@@ -12,7 +12,7 @@
 		public $dsParamSTARTPAGE = '1';
 		
 		public $dsParamFILTERS = array(
-				'146' => 'Administrator',
+				'5' => 'Administrator',
 		);
 		
 		public $dsParamINCLUDEDELEMENTS = array(
@@ -36,7 +36,7 @@
 		}
 		
 		public function getSource(){
-			return '40';
+			return '1';
 		}
 		
 		public function allowEditorToParse(){

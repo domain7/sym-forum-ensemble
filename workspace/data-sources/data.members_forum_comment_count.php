@@ -12,7 +12,7 @@
 		public $dsParamSTARTPAGE = '1';
 		
 		public $dsParamFILTERS = array(
-				'141' => '{$member}',
+				'20' => '{$member}',
 		);
 		
 		public $dsParamINCLUDEDELEMENTS = array(
@@ -36,7 +36,7 @@
 		}
 		
 		public function getSource(){
-			return '39';
+			return '3';
 		}
 		
 		public function allowEditorToParse(){

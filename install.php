@@ -204,7 +204,7 @@ Symphony Team';
 		$conf['members']['timezone_offset_field_id'] = '8';
 		$conf['forum']['discussion-section'] = '2';
 		$conf['forum']['comment-section'] = '3';
-		$conf['forum']['member-link-field'] = '20';
+		$conf['forum']['member-link-field'] = '11';
 		$conf['forum']['discussion-last-post-field'] = '13';
 		$conf['forum']['discussion-last-active-field'] = '14';
 		$conf['forum']['unread-cutoff-field'] = '19';
