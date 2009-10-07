@@ -30,6 +30,10 @@
 			return '';
 		}
 		
+		public static function showInRolePermissions(){
+			return true;
+		}
+		
 		public function load(){			
 			if(isset($_POST['action']['save-member'])) return $this->__trigger();
 		}
