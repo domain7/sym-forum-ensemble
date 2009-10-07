@@ -61,7 +61,7 @@
 						FROM `tbl_entries_data_%d` 
 						WHERE `entry_id` IN (".@implode(',', $param_pool['ds-forum-discussions']).") 
 						AND `local` <= '%s'",
-						119, 
+						14, 
 						$member_read_cutoff_date
 					)
 				);
