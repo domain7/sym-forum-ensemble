@@ -75,6 +75,10 @@
         <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://symphony.local:8888/success/" /></code></pre>';
 		}
 		
+		public static function showInRolePermissions(){
+			return true;
+		}
+		
 		public function load(){			
 			if(isset($_POST['action']['edit-member'])) return $this->__trigger();
 		}

@@ -230,9 +230,11 @@ CREATE TABLE `tbl_entries_data_1` (
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_1` ***
+INSERT INTO `tbl_entries_data_1` (`id`, `entry_id`, `handle`, `value`) VALUES (1, 1, 'stephen-bau', 'Stephen Bau');
+INSERT INTO `tbl_entries_data_1` (`id`, `entry_id`, `handle`, `value`) VALUES (8, 2, 'stephen', 'Stephen');
 
 -- *** STRUCTURE: `tbl_entries_data_10` ***
 DROP TABLE IF EXISTS `tbl_entries_data_10`;
@@ -387,9 +389,11 @@ CREATE TABLE `tbl_entries_data_2` (
   PRIMARY KEY  (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `username` (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_2` ***
+INSERT INTO `tbl_entries_data_2` (`id`, `entry_id`, `username`, `password`) VALUES (1, 1, 'stephen', '6a204bd89f3c8348afd5c77c717a097a');
+INSERT INTO `tbl_entries_data_2` (`id`, `entry_id`, `username`, `password`) VALUES (8, 2, 'blah', '6a204bd89f3c8348afd5c77c717a097a');
 
 -- *** STRUCTURE: `tbl_entries_data_20` ***
 DROP TABLE IF EXISTS `tbl_entries_data_20`;
@@ -417,9 +421,11 @@ CREATE TABLE `tbl_entries_data_3` (
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_3` ***
+INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `handle`, `value`) VALUES (1, 1, 'http-wwwdomain7com', 'http://www.domain7.com/');
+INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `handle`, `value`) VALUES (8, 2, 'http-wwwdomain7com', 'http://www.domain7.com/');
 
 -- *** STRUCTURE: `tbl_entries_data_4` ***
 DROP TABLE IF EXISTS `tbl_entries_data_4`;
@@ -432,9 +438,11 @@ CREATE TABLE `tbl_entries_data_4` (
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_4` ***
+INSERT INTO `tbl_entries_data_4` (`id`, `entry_id`, `handle`, `value`) VALUES (1, 1, 'stephen-domain7com', 'stephen@domain7.com');
+INSERT INTO `tbl_entries_data_4` (`id`, `entry_id`, `handle`, `value`) VALUES (8, 2, 'stephen-domain7com', 'stephen@domain7.com');
 
 -- *** STRUCTURE: `tbl_entries_data_5` ***
 DROP TABLE IF EXISTS `tbl_entries_data_5`;
@@ -444,9 +452,11 @@ CREATE TABLE `tbl_entries_data_5` (
   `role_id` int(11) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `entry_id` (`entry_id`,`role_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_5` ***
+INSERT INTO `tbl_entries_data_5` (`id`, `entry_id`, `role_id`) VALUES (1, 1, 3);
+INSERT INTO `tbl_entries_data_5` (`id`, `entry_id`, `role_id`) VALUES (8, 2, 3);
 
 -- *** STRUCTURE: `tbl_entries_data_6` ***
 DROP TABLE IF EXISTS `tbl_entries_data_6`;
@@ -459,9 +469,11 @@ CREATE TABLE `tbl_entries_data_6` (
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_6` ***
+INSERT INTO `tbl_entries_data_6` (`id`, `entry_id`, `handle`, `value`) VALUES (1, 1, 'can', 'CAN');
+INSERT INTO `tbl_entries_data_6` (`id`, `entry_id`, `handle`, `value`) VALUES (8, 2, 'can', 'CAN');
 
 -- *** STRUCTURE: `tbl_entries_data_7` ***
 DROP TABLE IF EXISTS `tbl_entries_data_7`;
@@ -474,9 +486,11 @@ CREATE TABLE `tbl_entries_data_7` (
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_7` ***
+INSERT INTO `tbl_entries_data_7` (`id`, `entry_id`, `handle`, `value`) VALUES (1, 1, 'abbotsford', 'Abbotsford');
+INSERT INTO `tbl_entries_data_7` (`id`, `entry_id`, `handle`, `value`) VALUES (8, 2, 'vancouver', 'Vancouver');
 
 -- *** STRUCTURE: `tbl_entries_data_8` ***
 DROP TABLE IF EXISTS `tbl_entries_data_8`;
@@ -487,9 +501,11 @@ CREATE TABLE `tbl_entries_data_8` (
   PRIMARY KEY  (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `value` (`value`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_8` ***
+INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`) VALUES (1, 1, -8);
+INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`) VALUES (8, 2, -8);
 
 -- *** STRUCTURE: `tbl_entries_data_9` ***
 DROP TABLE IF EXISTS `tbl_entries_data_9`;
@@ -500,11 +516,15 @@ CREATE TABLE `tbl_entries_data_9` (
   PRIMARY KEY  (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `value` (`value`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_9` ***
+INSERT INTO `tbl_entries_data_9` (`id`, `entry_id`, `value`) VALUES (1, 1, 'yes');
+INSERT INTO `tbl_entries_data_9` (`id`, `entry_id`, `value`) VALUES (8, 2, 'yes');
 
 -- *** DATA: `tbl_entries` ***
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (1, 1, 1, '2009-10-07 08:28:53', '2009-10-07 15:28:53');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (2, 1, 0, '2009-10-07 09:14:09', '2009-10-07 16:14:09');
 
 -- *** DATA: `tbl_extensions` ***
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (1, 'asdc', 'enabled', 1.2);
@@ -576,7 +596,7 @@ INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `d
 INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (7, 1, 'Code Source', 'code-source', 'forum', 'comment-id/position', 'forum_code_source', NULL, 7);
 INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (8, NULL, 'Members', 'members', NULL, 'member', 'members,members_forum_comment_count,members_forum_discussion_count,whosonline', NULL, 8);
 INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (9, 8, 'New', 'new', 'members', NULL, 'members_location,whosonline', 'save_member', 9);
-INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (10, 8, 'Edit', 'edit', 'members', NULL, 'members_edit,members_location,whosonline', 'edit_member', 10);
+INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (10, 8, 'Edit', 'edit', 'members', NULL, 'members_edit', 'edit_member', 10);
 INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (11, 8, 'Activate', 'activate', 'members', 'mode', 'whosonline', 'forum_activate_member,forum_resend_activation_email', 11);
 INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (12, 8, 'Reset Password', 'reset-pass', 'members', 'mode', 'whosonline', 'forgot_password', 12);
 INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (13, 8, 'Change Password', 'change-pass', 'members', 'mode', 'whosonline', 'member_change_password', 13);
@@ -600,6 +620,8 @@ INSERT INTO `tbl_sections_association` (`id`, `parent_section_id`, `parent_secti
 -- *** DATA: `tbl_forum_read_discussions` ***
 
 -- *** DATA: `tbl_members_login_tokens` ***
+INSERT INTO `tbl_members_login_tokens` (`member_id`, `token`, `expiry`) VALUES (1, 17360046, 1254933194);
+INSERT INTO `tbl_members_login_tokens` (`member_id`, `token`, `expiry`) VALUES (2, 92402536, 1254935702);
 
 -- *** DATA: `tbl_members_roles` ***
 INSERT INTO `tbl_members_roles` (`id`, `name`, `email_subject`, `email_body`) VALUES (1, 'Guest', NULL, NULL);
@@ -620,15 +642,20 @@ INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `ac
 INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (10, 2, 'forum', 'remove_own_comment', 'yes');
 INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (11, 2, 'forum', 'pin_discussion', 'yes');
 INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (12, 2, 'forum', 'close_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (13, 3, 'forum', 'start_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (14, 3, 'forum', 'edit_own_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (15, 3, 'forum', 'add_comment', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (16, 3, 'forum', 'edit_own_comment', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (76, 3, 'forum', 'edit_own_comment', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (75, 3, 'forum', 'add_comment', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (74, 3, 'forum', 'edit_own_discussion', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (73, 3, 'forum', 'start_discussion', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (22, 1, 'save_member', 'add', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (72, 3, 'save_member', 'edit_own', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (71, 3, 'member_change_password', 'edit_own', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (70, 3, 'edit_member', 'edit_own', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (69, 3, 'edit_member', 'edit', 'yes');
 
 -- *** DATA: `tbl_members_roles_forbidden_pages` ***
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (1, 1, 13);
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (2, 1, 10);
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (3, 1, 6);
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (4, 1, 5);
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (5, 1, 2);
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (6, 1, 4);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (12, 1, 4);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (11, 1, 2);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (10, 1, 5);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (9, 1, 6);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (8, 1, 10);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (7, 1, 13);

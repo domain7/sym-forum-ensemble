@@ -39,7 +39,7 @@
 		}
 		
 		public function getSource(){
-			return '40';
+			return '1';
 		}
 
 		public function grab(&$param_pool){

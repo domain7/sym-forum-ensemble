@@ -67,6 +67,10 @@
 			return '';
 		}
 		
+		public static function showInRolePermissions(){
+			return true;
+		}
+		
 		public function load(){			
 			if(isset($_POST['action']['member-change-password']) && isset($_POST['fields'])){
 				return $this->__trigger();
