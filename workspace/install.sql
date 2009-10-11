@@ -2,12 +2,12 @@
 -- *** STRUCTURE: `tbl_fields_author` ***
 DROP TABLE IF EXISTS `tbl_fields_author`;
 CREATE TABLE `tbl_fields_author` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `allow_author_change` enum('yes','no') collate utf8_unicode_ci NOT NULL,
-  `allow_multiple_selection` enum('yes','no') collate utf8_unicode_ci NOT NULL default 'no',
-  `default_to_current_user` enum('yes','no') collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`id`),
+  `allow_author_change` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL,
+  `allow_multiple_selection` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
+  `default_to_current_user` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -16,11 +16,11 @@ CREATE TABLE `tbl_fields_author` (
 -- *** STRUCTURE: `tbl_fields_checkbox` ***
 DROP TABLE IF EXISTS `tbl_fields_checkbox`;
 CREATE TABLE `tbl_fields_checkbox` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `default_state` enum('on','off') collate utf8_unicode_ci NOT NULL default 'on',
-  `description` varchar(255) collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`id`),
+  `default_state` enum('on','off') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'on',
+  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -32,11 +32,11 @@ INSERT INTO `tbl_fields_checkbox` (`id`, `field_id`, `default_state`, `descripti
 -- *** STRUCTURE: `tbl_fields_date` ***
 DROP TABLE IF EXISTS `tbl_fields_date`;
 CREATE TABLE `tbl_fields_date` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `pre_populate` enum('yes','no') collate utf8_unicode_ci NOT NULL default 'no',
-  `calendar` enum('yes','no') collate utf8_unicode_ci NOT NULL default 'no',
-  PRIMARY KEY  (`id`),
+  `pre_populate` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
+  `calendar` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
+  PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -48,10 +48,10 @@ INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`) VAL
 -- *** STRUCTURE: `tbl_fields_input` ***
 DROP TABLE IF EXISTS `tbl_fields_input`;
 CREATE TABLE `tbl_fields_input` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `validator` varchar(100) collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`id`),
+  `validator` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -66,9 +66,9 @@ INSERT INTO `tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (6, 10, NU
 -- *** STRUCTURE: `tbl_fields_member` ***
 DROP TABLE IF EXISTS `tbl_fields_member`;
 CREATE TABLE `tbl_fields_member` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -78,9 +78,9 @@ INSERT INTO `tbl_fields_member` (`id`, `field_id`) VALUES (1, 2);
 -- *** STRUCTURE: `tbl_fields_memberlink` ***
 DROP TABLE IF EXISTS `tbl_fields_memberlink`;
 CREATE TABLE `tbl_fields_memberlink` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -92,9 +92,9 @@ INSERT INTO `tbl_fields_memberlink` (`id`, `field_id`) VALUES (4, 20);
 -- *** STRUCTURE: `tbl_fields_memberrole` ***
 DROP TABLE IF EXISTS `tbl_fields_memberrole`;
 CREATE TABLE `tbl_fields_memberrole` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -104,9 +104,9 @@ INSERT INTO `tbl_fields_memberrole` (`id`, `field_id`) VALUES (1, 5);
 -- *** STRUCTURE: `tbl_fields_number` ***
 DROP TABLE IF EXISTS `tbl_fields_number`;
 CREATE TABLE `tbl_fields_number` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -115,12 +115,12 @@ CREATE TABLE `tbl_fields_number` (
 -- *** STRUCTURE: `tbl_fields_select` ***
 DROP TABLE IF EXISTS `tbl_fields_select`;
 CREATE TABLE `tbl_fields_select` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `allow_multiple_selection` enum('yes','no') collate utf8_unicode_ci NOT NULL default 'no',
-  `static_options` text collate utf8_unicode_ci,
-  `dynamic_options` int(11) unsigned default NULL,
-  PRIMARY KEY  (`id`),
+  `allow_multiple_selection` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
+  `static_options` text COLLATE utf8_unicode_ci,
+  `dynamic_options` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -129,12 +129,12 @@ CREATE TABLE `tbl_fields_select` (
 -- *** STRUCTURE: `tbl_fields_selectbox_link` ***
 DROP TABLE IF EXISTS `tbl_fields_selectbox_link`;
 CREATE TABLE `tbl_fields_selectbox_link` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `allow_multiple_selection` enum('yes','no') NOT NULL default 'no',
+  `allow_multiple_selection` enum('yes','no') NOT NULL DEFAULT 'no',
   `related_field_id` varchar(255) NOT NULL,
-  `limit` int(4) unsigned NOT NULL default '20',
-  PRIMARY KEY  (`id`),
+  `limit` int(4) unsigned NOT NULL DEFAULT '20',
+  PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -144,11 +144,11 @@ INSERT INTO `tbl_fields_selectbox_link` (`id`, `field_id`, `allow_multiple_selec
 -- *** STRUCTURE: `tbl_fields_taglist` ***
 DROP TABLE IF EXISTS `tbl_fields_taglist`;
 CREATE TABLE `tbl_fields_taglist` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `validator` varchar(100) collate utf8_unicode_ci default NULL,
-  `pre_populate_source` varchar(15) collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`id`),
+  `validator` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `pre_populate_source` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`),
   KEY `pre_populate_source` (`pre_populate_source`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -158,11 +158,11 @@ CREATE TABLE `tbl_fields_taglist` (
 -- *** STRUCTURE: `tbl_fields_textarea` ***
 DROP TABLE IF EXISTS `tbl_fields_textarea`;
 CREATE TABLE `tbl_fields_textarea` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `formatter` varchar(100) collate utf8_unicode_ci default NULL,
+  `formatter` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `size` int(3) unsigned NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -172,11 +172,11 @@ INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES
 -- *** STRUCTURE: `tbl_fields_uniqueupload` ***
 DROP TABLE IF EXISTS `tbl_fields_uniqueupload`;
 CREATE TABLE `tbl_fields_uniqueupload` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `destination` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `validator` varchar(50) collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`id`),
+  `destination` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `validator` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -185,11 +185,11 @@ CREATE TABLE `tbl_fields_uniqueupload` (
 -- *** STRUCTURE: `tbl_fields_upload` ***
 DROP TABLE IF EXISTS `tbl_fields_upload`;
 CREATE TABLE `tbl_fields_upload` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `destination` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `validator` varchar(50) collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`id`),
+  `destination` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `validator` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -198,10 +198,10 @@ CREATE TABLE `tbl_fields_upload` (
 -- *** STRUCTURE: `tbl_fields_xml` ***
 DROP TABLE IF EXISTS `tbl_fields_xml`;
 CREATE TABLE `tbl_fields_xml` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
   `size` int(3) unsigned NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -210,10 +210,10 @@ CREATE TABLE `tbl_fields_xml` (
 -- *** STRUCTURE: `tbl_entries_cache_reference` ***
 DROP TABLE IF EXISTS `tbl_entries_cache_reference`;
 CREATE TABLE `tbl_entries_cache_reference` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `cache_id` int(11) unsigned NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`,`cache_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -222,28 +222,26 @@ CREATE TABLE `tbl_entries_cache_reference` (
 -- *** STRUCTURE: `tbl_entries_data_1` ***
 DROP TABLE IF EXISTS `tbl_entries_data_1`;
 CREATE TABLE `tbl_entries_data_1` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `handle` varchar(255) default NULL,
-  `value` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
+  `handle` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_1` ***
-INSERT INTO `tbl_entries_data_1` (`id`, `entry_id`, `handle`, `value`) VALUES (1, 1, 'stephen-bau', 'Stephen Bau');
-INSERT INTO `tbl_entries_data_1` (`id`, `entry_id`, `handle`, `value`) VALUES (8, 2, 'stephen', 'Stephen');
 
 -- *** STRUCTURE: `tbl_entries_data_10` ***
 DROP TABLE IF EXISTS `tbl_entries_data_10`;
 CREATE TABLE `tbl_entries_data_10` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `handle` varchar(255) default NULL,
-  `value` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
+  `handle` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
@@ -254,11 +252,11 @@ CREATE TABLE `tbl_entries_data_10` (
 -- *** STRUCTURE: `tbl_entries_data_11` ***
 DROP TABLE IF EXISTS `tbl_entries_data_11`;
 CREATE TABLE `tbl_entries_data_11` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `member_id` int(11) default NULL,
-  `username` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
+  `member_id` int(11) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `member_id` (`member_id`),
   KEY `username` (`username`)
@@ -269,12 +267,12 @@ CREATE TABLE `tbl_entries_data_11` (
 -- *** STRUCTURE: `tbl_entries_data_12` ***
 DROP TABLE IF EXISTS `tbl_entries_data_12`;
 CREATE TABLE `tbl_entries_data_12` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `value` varchar(80) default NULL,
-  `local` int(11) default NULL,
-  `gmt` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `value` varchar(80) DEFAULT NULL,
+  `local` int(11) DEFAULT NULL,
+  `gmt` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -284,11 +282,11 @@ CREATE TABLE `tbl_entries_data_12` (
 -- *** STRUCTURE: `tbl_entries_data_13` ***
 DROP TABLE IF EXISTS `tbl_entries_data_13`;
 CREATE TABLE `tbl_entries_data_13` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `member_id` int(11) default NULL,
-  `username` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
+  `member_id` int(11) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `member_id` (`member_id`),
   KEY `username` (`username`)
@@ -299,12 +297,12 @@ CREATE TABLE `tbl_entries_data_13` (
 -- *** STRUCTURE: `tbl_entries_data_14` ***
 DROP TABLE IF EXISTS `tbl_entries_data_14`;
 CREATE TABLE `tbl_entries_data_14` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `value` varchar(80) default NULL,
-  `local` int(11) default NULL,
-  `gmt` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `value` varchar(80) DEFAULT NULL,
+  `local` int(11) DEFAULT NULL,
+  `gmt` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -314,10 +312,10 @@ CREATE TABLE `tbl_entries_data_14` (
 -- *** STRUCTURE: `tbl_entries_data_15` ***
 DROP TABLE IF EXISTS `tbl_entries_data_15`;
 CREATE TABLE `tbl_entries_data_15` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `value` enum('yes','no') NOT NULL default 'no',
-  PRIMARY KEY  (`id`),
+  `value` enum('yes','no') NOT NULL DEFAULT 'no',
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -327,10 +325,10 @@ CREATE TABLE `tbl_entries_data_15` (
 -- *** STRUCTURE: `tbl_entries_data_16` ***
 DROP TABLE IF EXISTS `tbl_entries_data_16`;
 CREATE TABLE `tbl_entries_data_16` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `value` enum('yes','no') NOT NULL default 'no',
-  PRIMARY KEY  (`id`),
+  `value` enum('yes','no') NOT NULL DEFAULT 'no',
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -340,11 +338,11 @@ CREATE TABLE `tbl_entries_data_16` (
 -- *** STRUCTURE: `tbl_entries_data_17` ***
 DROP TABLE IF EXISTS `tbl_entries_data_17`;
 CREATE TABLE `tbl_entries_data_17` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `value` text,
   `value_formatted` text,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   FULLTEXT KEY `value` (`value`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -354,10 +352,10 @@ CREATE TABLE `tbl_entries_data_17` (
 -- *** STRUCTURE: `tbl_entries_data_18` ***
 DROP TABLE IF EXISTS `tbl_entries_data_18`;
 CREATE TABLE `tbl_entries_data_18` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `relation_id` int(11) unsigned NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `relation_id` (`relation_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -367,12 +365,12 @@ CREATE TABLE `tbl_entries_data_18` (
 -- *** STRUCTURE: `tbl_entries_data_19` ***
 DROP TABLE IF EXISTS `tbl_entries_data_19`;
 CREATE TABLE `tbl_entries_data_19` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `value` varchar(80) default NULL,
-  `local` int(11) default NULL,
-  `gmt` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `value` varchar(80) DEFAULT NULL,
+  `local` int(11) DEFAULT NULL,
+  `gmt` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -382,27 +380,25 @@ CREATE TABLE `tbl_entries_data_19` (
 -- *** STRUCTURE: `tbl_entries_data_2` ***
 DROP TABLE IF EXISTS `tbl_entries_data_2`;
 CREATE TABLE `tbl_entries_data_2` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `username` varchar(50) default NULL,
-  `password` varchar(32) default NULL,
-  PRIMARY KEY  (`id`),
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_2` ***
-INSERT INTO `tbl_entries_data_2` (`id`, `entry_id`, `username`, `password`) VALUES (1, 1, 'stephen', '6a204bd89f3c8348afd5c77c717a097a');
-INSERT INTO `tbl_entries_data_2` (`id`, `entry_id`, `username`, `password`) VALUES (8, 2, 'blah', '6a204bd89f3c8348afd5c77c717a097a');
 
 -- *** STRUCTURE: `tbl_entries_data_20` ***
 DROP TABLE IF EXISTS `tbl_entries_data_20`;
 CREATE TABLE `tbl_entries_data_20` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `member_id` int(11) default NULL,
-  `username` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
+  `member_id` int(11) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `member_id` (`member_id`),
   KEY `username` (`username`)
@@ -413,118 +409,102 @@ CREATE TABLE `tbl_entries_data_20` (
 -- *** STRUCTURE: `tbl_entries_data_3` ***
 DROP TABLE IF EXISTS `tbl_entries_data_3`;
 CREATE TABLE `tbl_entries_data_3` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `handle` varchar(255) default NULL,
-  `value` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
+  `handle` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_3` ***
-INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `handle`, `value`) VALUES (1, 1, 'http-wwwdomain7com', 'http://www.domain7.com/');
-INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `handle`, `value`) VALUES (8, 2, 'http-wwwdomain7com', 'http://www.domain7.com/');
 
 -- *** STRUCTURE: `tbl_entries_data_4` ***
 DROP TABLE IF EXISTS `tbl_entries_data_4`;
 CREATE TABLE `tbl_entries_data_4` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `handle` varchar(255) default NULL,
-  `value` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
+  `handle` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_4` ***
-INSERT INTO `tbl_entries_data_4` (`id`, `entry_id`, `handle`, `value`) VALUES (1, 1, 'stephen-domain7com', 'stephen@domain7.com');
-INSERT INTO `tbl_entries_data_4` (`id`, `entry_id`, `handle`, `value`) VALUES (8, 2, 'stephen-domain7com', 'stephen@domain7.com');
 
 -- *** STRUCTURE: `tbl_entries_data_5` ***
 DROP TABLE IF EXISTS `tbl_entries_data_5`;
 CREATE TABLE `tbl_entries_data_5` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `role_id` int(11) unsigned NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`,`role_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_5` ***
-INSERT INTO `tbl_entries_data_5` (`id`, `entry_id`, `role_id`) VALUES (1, 1, 3);
-INSERT INTO `tbl_entries_data_5` (`id`, `entry_id`, `role_id`) VALUES (8, 2, 3);
 
 -- *** STRUCTURE: `tbl_entries_data_6` ***
 DROP TABLE IF EXISTS `tbl_entries_data_6`;
 CREATE TABLE `tbl_entries_data_6` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `handle` varchar(255) default NULL,
-  `value` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
+  `handle` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_6` ***
-INSERT INTO `tbl_entries_data_6` (`id`, `entry_id`, `handle`, `value`) VALUES (1, 1, 'can', 'CAN');
-INSERT INTO `tbl_entries_data_6` (`id`, `entry_id`, `handle`, `value`) VALUES (8, 2, 'can', 'CAN');
 
 -- *** STRUCTURE: `tbl_entries_data_7` ***
 DROP TABLE IF EXISTS `tbl_entries_data_7`;
 CREATE TABLE `tbl_entries_data_7` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `handle` varchar(255) default NULL,
-  `value` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
+  `handle` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_7` ***
-INSERT INTO `tbl_entries_data_7` (`id`, `entry_id`, `handle`, `value`) VALUES (1, 1, 'abbotsford', 'Abbotsford');
-INSERT INTO `tbl_entries_data_7` (`id`, `entry_id`, `handle`, `value`) VALUES (8, 2, 'vancouver', 'Vancouver');
 
 -- *** STRUCTURE: `tbl_entries_data_8` ***
 DROP TABLE IF EXISTS `tbl_entries_data_8`;
 CREATE TABLE `tbl_entries_data_8` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `value` double default NULL,
-  PRIMARY KEY  (`id`),
+  `value` double DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `value` (`value`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_8` ***
-INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`) VALUES (1, 1, -8);
-INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`) VALUES (8, 2, -8);
 
 -- *** STRUCTURE: `tbl_entries_data_9` ***
 DROP TABLE IF EXISTS `tbl_entries_data_9`;
 CREATE TABLE `tbl_entries_data_9` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
-  `value` enum('yes','no') NOT NULL default 'no',
-  PRIMARY KEY  (`id`),
+  `value` enum('yes','no') NOT NULL DEFAULT 'no',
+  PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `value` (`value`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- *** DATA: `tbl_entries_data_9` ***
-INSERT INTO `tbl_entries_data_9` (`id`, `entry_id`, `value`) VALUES (1, 1, 'yes');
-INSERT INTO `tbl_entries_data_9` (`id`, `entry_id`, `value`) VALUES (8, 2, 'yes');
 
 -- *** DATA: `tbl_entries` ***
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (1, 1, 1, '2009-10-07 08:28:53', '2009-10-07 15:28:53');
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (2, 1, 0, '2009-10-07 09:14:09', '2009-10-07 16:14:09');
 
 -- *** DATA: `tbl_extensions` ***
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (1, 'asdc', 'enabled', 1.2);
@@ -630,32 +610,36 @@ INSERT INTO `tbl_members_roles` (`id`, `name`, `email_subject`, `email_body`) VA
 INSERT INTO `tbl_members_roles` (`id`, `name`, `email_subject`, `email_body`) VALUES (4, 'Inactive', 'Symphony Website Membership', 'Dear {$name},\r\n\r\nThanks for registering!\r\n\r\nTo activate your account, head to {$root}/members/activate/ and enter \"{$activation-token}\" (without quotes) where it asks for your activation code.\r\n\r\nThis code will expire in one hour, so if you miss your window, simply head to the link above and click \"Resend activation email\" to get a new one.\r\n\r\nIf you have problems activating your account, please email us at support@symphony-cms.com and we\'ll do our best to help.\r\n\r\nWe don\'t know you yet, but we can already tell -- you\'ll be a wonderful addition to our growing community!\r\n\r\nRegards,\r\n\r\nSymphony Team');
 
 -- *** DATA: `tbl_members_roles_event_permissions` ***
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (1, 2, 'forum', 'start_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (2, 2, 'forum', 'edit_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (3, 2, 'forum', 'edit_own_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (4, 2, 'forum', 'remove_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (5, 2, 'forum', 'remove_own_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (6, 2, 'forum', 'add_comment', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (7, 2, 'forum', 'edit_comment', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (8, 2, 'forum', 'edit_own_comment', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (9, 2, 'forum', 'remove_comment', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (10, 2, 'forum', 'remove_own_comment', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (11, 2, 'forum', 'pin_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (12, 2, 'forum', 'close_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (76, 3, 'forum', 'edit_own_comment', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (75, 3, 'forum', 'add_comment', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (74, 3, 'forum', 'edit_own_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (73, 3, 'forum', 'start_discussion', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (22, 1, 'save_member', 'add', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (72, 3, 'save_member', 'edit_own', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (71, 3, 'member_change_password', 'edit_own', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (70, 3, 'edit_member', 'edit_own', 'yes');
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (69, 3, 'edit_member', 'edit', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (1, 1, 'save_member', 'add', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (2, 2, 'edit_member', 'edit', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (3, 2, 'edit_member', 'edit_own', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (4, 2, 'member_change_password', 'edit_own', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (5, 2, 'save_member', 'edit_own', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (6, 2, 'forum', 'start_discussion', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (7, 2, 'forum', 'edit_discussion', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (8, 2, 'forum', 'edit_own_discussion', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (9, 2, 'forum', 'remove_discussion', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (10, 2, 'forum', 'remove_own_discussion', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (11, 2, 'forum', 'add_comment', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (12, 2, 'forum', 'edit_comment', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (13, 2, 'forum', 'edit_own_comment', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (14, 2, 'forum', 'remove_comment', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (15, 2, 'forum', 'remove_own_comment', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (16, 2, 'forum', 'pin_discussion', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (17, 2, 'forum', 'close_discussion', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (18, 3, 'edit_member', 'edit', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (19, 3, 'edit_member', 'edit_own', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (20, 3, 'member_change_password', 'edit_own', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (21, 3, 'save_member', 'edit_own', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (22, 3, 'forum', 'start_discussion', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (23, 3, 'forum', 'edit_own_discussion', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (24, 3, 'forum', 'add_comment', 'yes');
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `allow`) VALUES (25, 3, 'forum', 'edit_own_comment', 'yes');
 
 -- *** DATA: `tbl_members_roles_forbidden_pages` ***
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (12, 1, 4);
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (11, 1, 2);
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (10, 1, 5);
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (9, 1, 6);
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (8, 1, 10);
-INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (7, 1, 13);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (1, 1, 13);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (2, 1, 10);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (3, 1, 6);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (4, 1, 5);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (5, 1, 2);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (6, 1, 4);
