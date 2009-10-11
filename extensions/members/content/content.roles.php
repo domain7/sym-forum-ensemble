@@ -48,7 +48,7 @@
 
 			$this->_Parent->Page->addStylesheetToHead(URL . '/extensions/members/assets/styles.css', 'screen', 70);
 			
-			$create_button = Widget::Anchor('Create a new role', extension_members::baseURL() . 'new/', 'Create a new role', 'create button');
+			$create_button = Widget::Anchor('Create a New Role', extension_members::baseURL() . 'new/', 'Create a new role', 'create button');
 
 			$this->setPageType('table');
 			$this->appendSubheading('Member Roles ' . $create_button->generate(false));
@@ -66,6 +66,14 @@
 			$aTableBody = array();
 
 			if(!is_array($roles) || empty($roles)){
+
+				$aTableBody = array(
+									Widget::TableRow(array(Widget::TableData(__('None Found.'), 'inactive', NULL, count($aTableHead))))
+								);
+			}
+
+			elseif(!$this->_driver->memberSectionID()){
+				$this->pageAlert(__('You must set a section in <a href="%1$s">Member Preferences?</a>', array(extension_members::baseURL() . 'preferences/')), Alert::ERROR);
 
 				$aTableBody = array(
 									Widget::TableRow(array(Widget::TableData(__('None Found.'), 'inactive', NULL, count($aTableHead))))
