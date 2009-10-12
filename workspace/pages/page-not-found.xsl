@@ -4,7 +4,7 @@
 <xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<h2>404: Page Not Found</h2>
+	<h2 class="heading">404: Page Not Found</h2>
 	<h3>Genuinely lost or have you been nosing about?</h3>
 	<p>If you're trying to get the inside scoop, why don't you <a href="{$root}/members/new/">join our ranks</a>?</p>
 </xsl:template>

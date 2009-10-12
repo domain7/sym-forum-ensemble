@@ -11,7 +11,7 @@
 <xsl:template match="data">
 	<xsl:if test="$logged-in = 'true'">
 		<div id="toolbox">
-			<a id="create-entry" href="{$root}/forum/discussions/new/">Start a new discussion</a>
+			<a id="create-entry" href="{$root}/forum/discussions/new/" class="button">Start a new discussion</a>
 		</div>
 	</xsl:if>
 	<table id="discussions" cellpadding="0" cellspacing="0">

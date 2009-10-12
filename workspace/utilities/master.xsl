@@ -19,7 +19,9 @@
 	<html>
 		<head>
 			<xsl:apply-templates select="data" mode="page-title"/>
-			<link rel="stylesheet" type="text/css" media="screen" href="{$workspace}/assets/css/styles.css" />
+			<!-- link rel="stylesheet" type="text/css" media="screen" href="{$workspace}/assets/css/styles.css" /-->
+			<link rel="stylesheet" type="text/css" media="screen" href="{$workspace}/assets/css/layout.css" />
+			<link rel="stylesheet" type="text/css" media="screen" href="{$workspace}/assets/css/themes/dark/dark.css" />
 			<script type="text/javascript" src="{$workspace}/assets/js/jquery/jquery-1.3.2.min.js"></script>
 			<script type="text/javascript" src="{$workspace}/assets/js/system.js"></script>
 			<script type="text/javascript" src="{$workspace}/assets/js/syntax-xml.js"></script>
@@ -82,15 +84,15 @@
 					</xsl:when>
 					<xsl:when test="/data/events/member-login-info/@failed-login-attempt = 'true'">
 						<li>Login Failed, </li>
-						<li><input id="submit" type="submit" name="reset" value="Try Again"/></li>
+						<li><input id="submit" type="submit" name="reset" value="Try Again" class="button"/></li>
 						<li> or </li>
 						<li><a class="button" href="{$root}/members/reset-pass/">Reset Password</a></li>
 					</xsl:when>
 					<xsl:otherwise>
-						<li><input name="username" title="username" value="username" class="clear-on-focus"/></li>
+						<li><input name="username" title="username" type="text" value="username" class="clear-on-focus"/></li>
 						<li><input name="password" title="chipmonk" type="password" value="chipmonk" class="clear-on-focus"/></li>
-						<li><input name="redirect" type="hidden" value="{$root}/"/><input id="submit" type="submit" name="member-action[login]" value="Log In"/></li>
-						<li>or <a href="{$root}/members/new/">register an account</a></li>
+						<li><input name="redirect" type="hidden" value="{$root}/"/><input id="submit" type="submit" name="member-action[login]" value="Log In" class="button"/></li>
+						<li>or <a href="{$root}/members/new/" class="register button">register an account</a></li>
 					</xsl:otherwise>
 				</xsl:choose>
 			</ul>
@@ -100,7 +102,7 @@
 
 <xsl:template name="whos-online">
 	<div id="whos-online">
-		<h2><xsl:value-of select="concat('Currently Online (', count(data/whos-online/member), ')')"/></h2>
+		<h3><xsl:value-of select="concat('Currently Online (', count(data/whos-online/member), ')')"/></h3>
 		<ul>
 			<xsl:for-each select="data/whos-online/member">
 				<li>

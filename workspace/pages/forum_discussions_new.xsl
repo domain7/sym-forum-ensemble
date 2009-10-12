@@ -4,7 +4,7 @@
 <xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<h2>New Discussion</h2>
+	<h2 class="heading">New Discussion</h2>
 	<form method="post" action="{$current-url}">
 		<fieldset>
 			<p>
@@ -29,7 +29,7 @@
 			<input name="fields[created-by]" type="hidden" value="{$member/@id}"/>
 			<input name="fields[last-post]" type="hidden" value="{$member/@id}"/>
 			<div id="submission">
-				<input id="submit" name="action[forum-new-discussion]" type="submit" value="Create discussion" />
+				<input id="submit" name="action[forum-new-discussion]" type="submit" value="Create discussion" class="button"/>
 				<a id="cancel" href="{$root}/forum/">Cancel and go back</a>
 			</div>
 			<input name="redirect" type="hidden">
