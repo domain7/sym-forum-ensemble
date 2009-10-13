@@ -48,6 +48,7 @@
 			</p>
 			<div id="submission">
 				<input id="submit" name="action[member-change-password]" type="submit" value="Change Password" class="button"/>
+				<a id="cancel" href="{$root}/members/{$member/username-and-password/@username}/" class="button">Cancel and go back</a>
 			</div>
 		</fieldset>
 	</form>

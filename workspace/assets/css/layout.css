@@ -225,8 +225,8 @@ h2, h3, h4, h5, h6 {
 
 #page-info {
 	position: absolute;
-	top: 0;
-	right: 20px;
+	top: 20px;
+	right: 25px;
 	font-size: 1.1em;
 	font-weight: bold;
 }
@@ -524,12 +524,12 @@ td.notification a:hover {
 /* Member Page */
 #header img {
 	float: left;
-	margin: 0 10px 10px 0;
+	margin: 10px 25px 10px 10px;
 }
 #header h2 {
 	font-size: 23px;
 	padding-top: 5px;
-	line-height: 45px;
+	line-height: 60px;
 }
 #header h2#owner {
 	line-height: inherit;
@@ -599,7 +599,7 @@ td.notification a:hover {
 }
 
 #whos-online li {
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 #whos-online li a {

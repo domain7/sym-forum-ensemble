@@ -30,7 +30,7 @@
 			<input name="fields[last-post]" type="hidden" value="{$member/@id}"/>
 			<div id="submission">
 				<input id="submit" name="action[forum-new-discussion]" type="submit" value="Create discussion" class="button"/>
-				<a id="cancel" href="{$root}/forum/">Cancel and go back</a>
+				<a id="cancel" href="{$root}/forum/" class="button">Cancel and go back</a>
 			</div>
 			<input name="redirect" type="hidden">
 				<xsl:attribute name="value"><xsl:value-of select="$root"/>/forum/discussions/{$id}/</xsl:attribute>

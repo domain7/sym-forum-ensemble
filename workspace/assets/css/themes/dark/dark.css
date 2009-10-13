@@ -11,7 +11,7 @@ h1 a {
 }
 #sidebar h3 {
 	font-weight: normal;
-	font-size: 1em;
+	font-size: .9em;
 	text-transform: uppercase;
 	letter-spacing: .1em;
 }
@@ -39,6 +39,9 @@ a.button {
 a.register {
 	float: right;
 	margin-left: 9px;
+}
+li.register span {
+	float: left;
 }
 #content {
 	padding: 12px;
@@ -129,6 +132,24 @@ a.confirm:hover {
 #whos-online li a {
 	padding: 6px;
 	line-height: 29px;
+}
+#page-info {
+	color: #444;
+}
+#page-info:hover {
+	color: #86e104;
+}
+table td a {
+	color: #fff;
+}
+table td a:hover {
+	color: #86e104;
+}
+table tr.unread td a {
+	color: #86e104;
+}
+table tr.unread td a:hover {
+	color: #fff;
 }
 
 /* Forms */
@@ -224,7 +245,14 @@ table tr.unread td.replies,
 table tr.unread td.last-active {
 	background-color: #262626;
 }
-
+table td .new-comments {
+	background-color: #222;
+	padding: 3px 6px;
+}
+table td a:hover .new-comments {
+	background-color: #111;
+	padding: 3px 6px;
+}
 
 /* Forms */
 
@@ -265,13 +293,21 @@ textarea {
 #content .meta ul.avatar li.position {
 	background-color: transparent;
 }
-#content .meta ul.avatar .position a:hover {
+#content .meta ul.avatar .position a:hover,
+#content div:target .meta ul.avatar .position a {
+	color: #fff;
 	background: #68b000;
+}
+.meta .comment-options li a {
+	margin-top: 9px;
 }
 .comment .comment-options.admin {
 	background-color: #000;
 	background-color: rgba(0, 0, 0, 0.5);
 	padding: 6px;
+}
+.comment .comment-options.admin li a {
+	margin-top: 0;
 }
 .meta .comment-options li .confirm {
 	margin-right: 6px;
@@ -283,6 +319,10 @@ textarea {
 #content .meta .dev.icon {
 	background-color: #56b0fe;
 }
+ul#pagination {
+	background-color: #111;
+	margin: 12px 0!important;
+}
 
 
 /* Background Images
@@ -291,30 +331,30 @@ textarea {
 	background: #aaa url("../../../images/buttons/search.png") 50% 50% no-repeat;
 }
 table tr td.topic {
-	background: url("../../../images/forum/normal.png") 10px 13px no-repeat;
+	background: url("img/normal.png") 10px 13px no-repeat;
 	padding-left: 35px;
 }
 table tr.unread td.topic {
-	background: url("../../../images/forum/normal-unread.png") 10px 13px no-repeat;
+	background: url("img/normal-unread.png") 10px 13px no-repeat;
 	padding-left: 35px;
 }
 table tr.closed td.topic {
-	background: url("../../../images/forum/closed-unread.png") 10px 13px no-repeat;
+	background: url("img/closed.png") 10px 13px no-repeat;
 }
 table tr.closed.unread td.topic {
-	background: url("../../../images/forum/closed-unread.png") 10px 13px no-repeat;
+	background: url("img/closed-unread.png") 10px 13px no-repeat;
 }
 table tr.sticky td.topic {
-	background: url("../../../images/forum/sticky.png") 10px 13px no-repeat;
+	background: url("img/sticky.png") 10px 13px no-repeat;
 }
 table tr.sticky.unread td.topic {
-	background: url("../../../images/forum/sticky-unread.png") 10px 13px no-repeat;
+	background: url("img/sticky-unread.png") 10px 13px no-repeat;
 }
 table tr.closed.sticky td.topic {
-	background: url("../../../images/forum/sticky-closed.png") 10px 13px no-repeat;
+	background: url("img/sticky-closed.png") 10px 13px no-repeat;
 }
 table tr.closed.sticky.unread td.topic {
-	background: url("../../../images/forum/sticky-closed-unread.png") 10px 13px no-repeat;
+	background: url("img/sticky-closed-unread.png") 10px 13px no-repeat;
 }
 
 
@@ -326,8 +366,10 @@ table tr.closed.sticky.unread td.topic {
 	-moz-border-radius: 12px;
 	-webkit-border-radius: 12px;
 }
+table td .new-comments,
 .comment .comment-options.admin,
 .heading,
+ul#pagination,
 #sidebar a,
 form p {
 	border-radius: 6px;
