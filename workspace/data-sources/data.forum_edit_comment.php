@@ -54,7 +54,7 @@
 			$xml->setAttribute('id', (int)$this->dsParamFILTERS['id']);
 			$xml->setAttribute('discussion-id', $discussionID);
 			
-			$body = $this->_Parent->Database->fetchVar('value', 0, "SELECT `value` FROM `tbl_entries_data_115` WHERE `entry_id` = ".(int)$this->dsParamFILTERS['id']." LIMIT 1");
+			$body = $this->_Parent->Database->fetchVar('value', 0, "SELECT `value` FROM `tbl_entries_data_17` WHERE `entry_id` = ".(int)$this->dsParamFILTERS['id']." LIMIT 1");
 		
 			if(is_null($body) || strlen(trim($body)) == 0){
 				return $this->emptyXMLSet();
