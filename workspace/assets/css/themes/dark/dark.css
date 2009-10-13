@@ -160,19 +160,35 @@ textarea {
 	color: #eee;
 }
 
+/* Content */
+
+blockquote {
+	background-color: #222;
+	border-left: 3px solid #111;
+}
+.code-block {
+	background-color: #111;
+}
+.code-block a {
+	background-color: #222;
+}
+.code-block a:hover {
+	background-color: #000;
+}
+
 /* Syntax Highlighting */
 
 #content pre.element {
-	color: #881280;
+	color: #d319c6;
 }
 pre .cdata, pre .text {
-	color: #000;
+	color: #c3ff6c;
 }
 pre .attribute {
-	color: #994500;
+	color: #e87517;
 }
 pre .attribute-data {
-	color: #1A1AA6;
+	color: #00c0ff;
 }
 pre .comment {
 	color: #236E25;
@@ -366,6 +382,7 @@ table tr.closed.sticky.unread td.topic {
 	-moz-border-radius: 12px;
 	-webkit-border-radius: 12px;
 }
+.code-block,
 table td .new-comments,
 .comment .comment-options.admin,
 .heading,
@@ -394,6 +411,7 @@ thead th.last-post {
 	-moz-border-radius-topright: 6px;
 	-webkit-border-top-right-radius: 6px;
 }
+.code-block a,
 textarea {
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
