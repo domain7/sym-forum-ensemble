@@ -178,6 +178,7 @@ h2, h3, h4, h5, h6 {
 	margin-bottom: 1em;
 }
 #content p {
+	margin-top: 1em;
 	margin-bottom: 1em;
 }
 #content ul {
@@ -237,7 +238,6 @@ ul#pagination {
 	clear: both;
 	text-align: center;
 	padding: 5px;
-	margin: 20px 0 !important;
 }
 ul#pagination li {
 	display: inline;
@@ -324,7 +324,6 @@ form #submission {
 	text-align: right;
 	position: relative;
 	margin-top: 5px;
-	margin-bottom: 5px;
 }
 form #submission #cancel {
 	position: absolute;
