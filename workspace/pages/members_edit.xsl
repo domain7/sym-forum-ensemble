@@ -6,7 +6,7 @@
 
 <xsl:template match="data">
 	<xsl:for-each select="members-edit/entry">
-		<h2>Edit Profile for <xsl:value-of select="username-and-password/@username"/></h2>
+		<h2 class="heading">Edit Profile for <xsl:value-of select="username-and-password/@username"/></h2>
 		<form method="post" action="{$current-url}">
 			<fieldset>
 				<p>
@@ -86,8 +86,8 @@
 
 				<input name="id" type="hidden" value="{@id}"/>
 				<div id="submission">
-					<input id="submit" name="action[edit-member]" type="submit" value="Save" />
-					<a id="cancel" href="{$root}/members/{$member/username-and-password/@username}/">Cancel and go back</a>
+					<input id="submit" name="action[edit-member]" type="submit" value="Save" class="button"/>
+					<a id="cancel" href="{$root}/members/{$member/username-and-password/@username}/" class="button">Cancel and go back</a>
 				</div>
 			</fieldset>
 		</form>

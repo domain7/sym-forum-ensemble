@@ -16,7 +16,7 @@
 	<xsl:variable name="comments-count" select="members-forum-comment-count/pagination/@total-entries"/>
 	<div id="header">
 		<img src="http://www.gravatar.com/avatar/{members/entry/@email-hash}?s=50&amp;d=http%3A%2F%2Fsymphony-cms.com%2Fworkspace%2Fassets%2Fimages%2Ficons%2Fsymphony-avatar.png" width="50" height="50" />
-		<h2>
+		<h2 class="heading">
 			<xsl:value-of select="members/entry/name"/>
 			<em><xsl:value-of select="concat(' (a.k.a. ', members/entry/username, ')')"/></em>
 		</h2>

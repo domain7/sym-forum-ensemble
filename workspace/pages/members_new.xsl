@@ -5,7 +5,7 @@
 <xsl:import href="../utilities/timezone.xsl"/>
 
 <xsl:template match="data">
-	<h2>Member Registration</h2>
+	<h2 class="heading">Member Registration</h2>
 	<xsl:if test="events/save-member/username-and-password/@type = 'invalid'">
 		<div id="system-message">
 			<p class="error">The username supplied already exist.</p>
@@ -95,8 +95,8 @@
 				</span>
 			</p>				
 			<div id="submission">
-				<input id="submit" name="action[save-member]" type="submit" value="Register" />
-				<a id="cancel" href="{$root}/">Cancel and go back</a>
+				<input id="submit" name="action[save-member]" type="submit" value="Register" class="button"/>
+				<a id="cancel" href="{$root}/" class="button">Cancel and go back</a>
 			</div>
 		</fieldset>
 	</form>

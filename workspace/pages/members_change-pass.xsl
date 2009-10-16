@@ -12,18 +12,18 @@
 </xsl:template>
 
 <xsl:template match="data" mode="change-pass">
-	<h2>Change your password</h2>
+	<h2 class="heading">Change your password</h2>
 	<xsl:call-template name="change-password-form"/>
 </xsl:template>
 
 <xsl:template match="data" mode="success">
-	<h2>Change your password</h2>
+	<h2 class="heading">Change your password</h2>
 	<h3>Success!</h3>
 	<p>Password changed successfully.</p>
 </xsl:template>
 
 <xsl:template match="data" mode="failed">
-	<h2>Change your password</h2>
+	<h2 class="heading">Change your password</h2>
 	<h3>Oh Noes!</h3>
 	<p class="error">The old password provided doesn't seem to be correct.</p>
 	<xsl:call-template name="change-password-form"/>
@@ -47,7 +47,8 @@
 				<input id="name" name="fields[new-password]" type="password" />
 			</p>
 			<div id="submission">
-				<input id="submit" name="action[member-change-password]" type="submit" value="Change Password" />
+				<input id="submit" name="action[member-change-password]" type="submit" value="Change Password" class="button"/>
+				<a id="cancel" href="{$root}/members/{$member/username-and-password/@username}/" class="button">Cancel and go back</a>
 			</div>
 		</fieldset>
 	</form>

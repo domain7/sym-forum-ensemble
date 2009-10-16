@@ -12,7 +12,7 @@
 </xsl:template>
 
 <xsl:template match="data" mode="identify">
-	<h2>Jedi Mind Trick</h2>
+	<h2 class="heading">Jedi Mind Trick</h2>
 	<h3>Reset Password</h3>
 	<p>There is only one way you can reset your password &#8211; by persuading us with your force.</p>
 	<p>With your force and some identification (but mostly with your force), we will email you a code that <strong><a href="./code/">you must enter</a></strong> before you can reset your password.</p>
@@ -34,7 +34,7 @@
 				<input id="name" name="fields[member-email-address]" type="text" />
 			</p>
 			<div id="submission">
-				<input id="submit" name="action[member-retrieve-password]" type="submit" value="Send me the code" />
+				<input id="submit" name="action[member-retrieve-password]" type="submit" value="Send me the code" class="button"/>
 			</div>
 		</fieldset>
 	</form>
@@ -55,8 +55,8 @@
 				<input id="name" name="fields[code]" type="text" value="{events/save-member/post-values/name}" />
 			</p>	
 			<div id="submission">
-				<input id="submit" class="resend" name="action[resend-code]" type="submit" value="Resend the email" />
-				<input id="submit" name="action[member-retrieve-password]" type="submit" value="Reset password" />
+				<input id="submit" class="resend button" name="action[resend-code]" type="submit" value="Resend the email"/>
+				<input id="submit" name="action[member-retrieve-password]" type="submit" value="Reset password" class="button"/>
 			</div>
 		</fieldset>
 	</form>

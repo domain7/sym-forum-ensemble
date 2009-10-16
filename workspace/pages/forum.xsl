@@ -63,7 +63,7 @@
 </xsl:template>
 
 <xsl:template match="data[search-comments/query-string]">
-	<h2>Search Result for &#8220;<xsl:value-of select="search-comments/query-string"/>&#8221;</h2>
+	<h2 class="heading">Search Result for &#8220;<xsl:value-of select="search-comments/query-string"/>&#8221;</h2>
 	<table id="discussions" cellpadding="0" cellspacing="0">
 		<thead>
 			<tr>

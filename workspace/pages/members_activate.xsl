@@ -15,7 +15,7 @@
 </xsl:template>
 
 <xsl:template match="data" mode="activate">
-	<h2>Account Activation</h2>
+	<h2 class="heading">Account Activation</h2>
 	<h3>
 		<xsl:value-of select="substring-after($member/name, ' ')"/>
 		<xsl:value-of select="concat(', ', $member/name)"/>
@@ -33,8 +33,8 @@
 				<input id="name" name="fields[code]" type="text" value="" />
 			</p>
 			<div id="submission">
-				<input id="submit" class="resend" name="action[resend-activation-email]" type="submit" value="Resend the activation email" />
-				<input id="submit" name="action[activate-account]" type="submit" value="Activate account" />
+				<input id="submit" class="resend button" name="action[resend-activation-email]" type="submit" value="Resend the activation email" />
+				<input id="submit" name="action[activate-account]" type="submit" value="Activate account" class="button"/>
 			</div>
 			<input name="redirect" type="hidden" value="{$root}" />
 		</fieldset>
@@ -42,33 +42,33 @@
 </xsl:template>
 
 <xsl:template match="data" mode="guest">
-	<h2>Account Activation</h2>
+	<h2 class="heading">Account Activation</h2>
 	<h3>Identification Please</h3>
 	<p>Looks like you're not logged in yet. You need to login first before we can activate your account.</p>
 </xsl:template>
 
 <xsl:template match="data" mode="already-active">
-	<h2>Account Activation</h2>
+	<h2 class="heading">Account Activation</h2>
 	<h3>You're already an active agent</h3>
 	<p>Agent <xsl:value-of select="$member/name"/>, our records show that you are already on active duty.</p>
 	<p>Our agency needs you, keep up the good work!</p>
 </xsl:template>
 
 <xsl:template match="data" mode="sent">
-	<h2>Account Activation</h2>
+	<h2 class="heading">Account Activation</h2>
 	<h3>Activation Email Resent</h3>
 	<p>Good news <xsl:value-of select="$member/username-and-password/@username"/>, an email containing your top secret activation code as been dispatched.</p>
 	<p>Head back to the <a href="{$root}/members/activate/">activation page</a> to enter the code sent to you.</p>
 </xsl:template>
 
 <xsl:template match="data" mode="failed">
-	<h2>Account Activation</h2>
+	<h2 class="heading">Account Activation</h2>
 	<h3>Oh Noes!</h3>
 	<p>Sorry <xsl:value-of select="$member/username-and-password/@username"/>, it looks like the code you supplied is not in our system.</p>
 </xsl:template>
 
 <xsl:template match="data" mode="success">
-	<h2>Congratulations!</h2>
+	<h2 class="heading">Congratulations!</h2>
 	<h3>Welcome, agent <xsl:value-of select="$member/username-and-password/@username"/></h3>
 	<p>All the training at agent school has paid off, you are now a fully-qualified member, with a license to dress in black.</p>
 	<blockquote>

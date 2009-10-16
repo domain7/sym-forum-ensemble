@@ -4,7 +4,7 @@
 <xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<h2>Edit Discussion</h2>
+	<h2 class="heading">Edit Discussion</h2>
 	<form method="post" action="{$current-url}">
 		<fieldset>
 			<p>
@@ -31,8 +31,8 @@
 	        <input name="fields[comment-id]" type="hidden" value="{forum-edit-discussion/@comment-id}"/>
 
 			<div id="submission">
-				<input id="submit" name="action[forum-edit-discussion]" type="submit" value="Submit changes" />
-				<a id="cancel" href="{$root}/forum/">Cancel and go back</a>
+				<input id="submit" name="action[forum-edit-discussion]" type="submit" value="Submit changes" class="button"/>
+				<a id="cancel" href="{$root}/forum/" class="button">Cancel and go back</a>
 			</div>
 			<input name="redirect" type="hidden" value="{$root}/forum/discussions/{$discussion-id}/" />
 		</fieldset>

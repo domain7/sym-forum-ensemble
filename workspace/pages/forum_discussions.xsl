@@ -41,7 +41,7 @@
 
 <!-- Main comments template -->
 <xsl:template match="forum-comments">
-	<h2><xsl:value-of select="/data/forum-discussions/entry/topic"/></h2>
+	<h2 class="heading"><xsl:value-of select="/data/forum-discussions/entry/topic"/></h2>
 
 	<xsl:if test="pagination/@total-pages &gt; 1">
 		<a id="page-info" href="#pagination"><xsl:value-of select="concat('Page ', pagination/@current-page, ' of ', pagination/@total-pages)"/></a>
@@ -92,8 +92,8 @@
 					</xsl:attribute>
 				</input>
 				<div id="submission">
-					<input id="submit" name="action[forum-new-comment]" type="submit" value="Post comment" />
-					<a id="cancel" href="{$root}/forum/">Cancel and go back</a>
+					<input id="submit" name="action[forum-new-comment]" type="submit" value="Post comment" class="button" />
+					<a id="cancel" href="{$root}/forum/" class="button">Cancel and go back</a>
 				</div>
 			</fieldset>
 		</form>
@@ -146,30 +146,30 @@
 				</xsl:if>
 				<xsl:choose>
 					<xsl:when test="(position() = 1 and ../pagination/@current-page = 1) and ($permissions/edit_discussion)">
-						<li><a href="{$root}/forum/discussions/edit-discussion/{$discussion-id}/">Edit</a></li>
+						<li><a href="{$root}/forum/discussions/edit-discussion/{$discussion-id}/" class="button">Edit</a></li>
 					</xsl:when>
 					<xsl:when test="(position() = 1 and ../pagination/@current-page = 1) and ($permissions/edit_own_discussion) and ($member/@id = created-by/@id)">
-						<li><a href="{$root}/forum/discussions/edit-discussion/{$discussion-id}/">Edit</a></li>
+						<li><a href="{$root}/forum/discussions/edit-discussion/{$discussion-id}/" class="button">Edit</a></li>
 					</xsl:when>
 					<xsl:when test="$permissions/edit_comment">
-						<li><a href="{$root}/forum/discussions/edit-comment/{@id}/{../pagination/@current-page}/{$comment-position}/">Edit</a></li>
+						<li><a href="{$root}/forum/discussions/edit-comment/{@id}/{../pagination/@current-page}/{$comment-position}/" class="button">Edit</a></li>
 					</xsl:when>
 					<xsl:when test="($permissions/edit_own_comment) and ($member/@id = created-by/@id)">
-						<li><a href="{$root}/forum/discussions/edit-comment/{@id}/{../pagination/@current-page}/{$comment-position}/">Edit</a></li>
+						<li><a href="{$root}/forum/discussions/edit-comment/{@id}/{../pagination/@current-page}/{$comment-position}/" class="button">Edit</a></li>
 					</xsl:when>
 				</xsl:choose>
 				<xsl:choose>
 					<xsl:when test="(position() = 1) and $permissions/remove_discussion">
-						<li><a class="confirm" title="Are you sure you want to remove the entire discussion?" href="{$current-url}?forum-action=remove">Remove</a></li>
+						<li><a class="confirm button" title="Are you sure you want to remove the entire discussion?" href="{$current-url}?forum-action=remove">Remove</a></li>
 					</xsl:when>
 					<xsl:when test="(position() = 1) and $permissions/remove_own_discussion and ($member/@id = created-by/@id)">
-						<li><a class="confirm" title="Are you sure you want to remove the entire discussion?" href="{$current-url}?forum-action=remove">Remove</a></li>
+						<li><a class="confirm button" title="Are you sure you want to remove the entire discussion?" href="{$current-url}?forum-action=remove">Remove</a></li>
 					</xsl:when>
 					<xsl:when test="$permissions/remove_comment">
-						<li><a class="confirm" title="Are you sure you want to remove this comment?" href="{$current-url}?forum-action=remove-comment&amp;comment-id={@id}">Remove</a></li>
+						<li><a class="confirm button" title="Are you sure you want to remove this comment?" href="{$current-url}?forum-action=remove-comment&amp;comment-id={@id}">Remove</a></li>
 					</xsl:when>
 					<xsl:when test="($permissions/remove_own_comment) and ($member/@id = created-by/@id)">
-						<li><a class="confirm" title="Are you sure you want to remove this comment?" href="{$current-url}?forum-action=remove-comment&amp;comment-id={@id}">Remove</a></li>
+						<li><a class="confirm button" title="Are you sure you want to remove this comment?" href="{$current-url}?forum-action=remove-comment&amp;comment-id={@id}">Remove</a></li>
 					</xsl:when>
 				</xsl:choose>
 			</ul>
