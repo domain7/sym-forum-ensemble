@@ -29,7 +29,7 @@
 		<body>
 			<div id="masthead">
 				<div>
-					<h1><a href="{$root}">Forum Ensemble</a></h1>
+					<h1><a href="{$root}"><xsl:value-of select="$website-name"/></a></h1>
 					<xsl:call-template name="login-panel"/>
 				</div>
 			</div>
@@ -49,7 +49,7 @@
 </xsl:template>
 
 <xsl:template match="data" mode="page-title">
-	<title>Forum Ensemble</title>
+	<title><xsl:value-of select="$website-name"/></title>
 </xsl:template>
 
 <xsl:template match="data" mode="side-panel"/>
