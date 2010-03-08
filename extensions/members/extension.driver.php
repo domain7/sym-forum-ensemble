@@ -498,8 +498,9 @@
 			$loggedin = false;
 
 			$action = $_REQUEST['member-action'];
+			if (is_string($action)) $action = array($action => true);
 
-			if(trim($action) == 'logout'){
+			if(isset($action['logout'])){
 				$this->logout();
 				redirect(URL);
 			}
