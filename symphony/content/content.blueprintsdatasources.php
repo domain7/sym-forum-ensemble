@@ -80,7 +80,8 @@
 				
 				$about = $existing->about();
 				$fields['name'] = $about['name'];
-				$fields['order'] = $existing->dsParamORDER;
+				
+				$fields['order'] = ($existing->dsParamORDER == 'rand' ? 'random' : $existing->dsParamORDER);
 				$fields['param'] = $existing->dsParamPARAMOUTPUT;
 				$fields['required_url_param'] = $existing->dsParamREQUIREDPARAM;
 				
@@ -689,7 +690,7 @@
 		
 			$label = Widget::Label();
 			$input = Widget::Input('fields[dynamic_xml][cache]', max(1, intval($fields['dynamic_xml']['cache'])), NULL, array('size' => '6'));
-			$label->setValue('Update cached result every ' . $input->generate(false) . ' minutes');
+			$label->setValue(__('Update cached result every %s minutes', array($input->generate(false))));
 			if(isset($this->_errors['dynamic_xml']['cache'])) $fieldset->appendChild(Widget::wrapFormElementWithError($label, $this->_errors['dynamic_xml']['cache']));
 			else $fieldset->appendChild($label);		
 
