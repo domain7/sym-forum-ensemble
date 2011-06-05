@@ -85,7 +85,7 @@ CREATE TABLE `tbl_fields` (
   `show_column` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
   PRIMARY KEY (`id`),
   KEY `index` (`element_name`,`type`,`parent_section`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** STRUCTURE: `tbl_fields_author` ***
 DROP TABLE IF EXISTS `tbl_fields_author`;
@@ -108,7 +108,7 @@ CREATE TABLE `tbl_fields_checkbox` (
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** STRUCTURE: `tbl_fields_date` ***
 DROP TABLE IF EXISTS `tbl_fields_date`;
@@ -128,7 +128,71 @@ CREATE TABLE `tbl_fields_input` (
   `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- *** STRUCTURE: `tbl_fields_memberactivation` ***
+DROP TABLE IF EXISTS `tbl_fields_memberactivation`;
+CREATE TABLE `tbl_fields_memberactivation` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `code_expiry` varchar(50) NOT NULL,
+  `activation_role_id` int(11) unsigned NOT NULL,
+  `deny_login` enum('yes','no') NOT NULL DEFAULT 'yes',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `field_id` (`field_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+
+-- *** STRUCTURE: `tbl_fields_memberemail` ***
+DROP TABLE IF EXISTS `tbl_fields_memberemail`;
+CREATE TABLE `tbl_fields_memberemail` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `field_id` (`field_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+
+-- *** STRUCTURE: `tbl_fields_memberpassword` ***
+DROP TABLE IF EXISTS `tbl_fields_memberpassword`;
+CREATE TABLE `tbl_fields_memberpassword` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `length` tinyint(2) NOT NULL,
+  `strength` enum('weak','good','strong') NOT NULL,
+  `salt` varchar(255) DEFAULT NULL,
+  `code_expiry` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `field_id` (`field_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+
+-- *** STRUCTURE: `tbl_fields_memberrole` ***
+DROP TABLE IF EXISTS `tbl_fields_memberrole`;
+CREATE TABLE `tbl_fields_memberrole` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `default_role` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `field_id` (`field_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+
+-- *** STRUCTURE: `tbl_fields_membertimezone` ***
+DROP TABLE IF EXISTS `tbl_fields_membertimezone`;
+CREATE TABLE `tbl_fields_membertimezone` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `available_zones` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `field_id` (`field_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+
+-- *** STRUCTURE: `tbl_fields_memberusername` ***
+DROP TABLE IF EXISTS `tbl_fields_memberusername`;
+CREATE TABLE `tbl_fields_memberusername` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `validator` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `field_id` (`field_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 -- *** STRUCTURE: `tbl_fields_number` ***
 DROP TABLE IF EXISTS `tbl_fields_number`;
@@ -292,7 +356,7 @@ CREATE TABLE `tbl_sections` (
   `navigation_group` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Content',
   PRIMARY KEY (`id`),
   UNIQUE KEY `handle` (`handle`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** STRUCTURE: `tbl_sections_association` ***
 DROP TABLE IF EXISTS `tbl_sections_association`;
