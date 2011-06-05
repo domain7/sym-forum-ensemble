@@ -40,3 +40,6 @@
 [submodule "workspace"]
 	path = workspace
 	url = git://github.com/domain7/sym-forum-ensemble.git
+[submodule "extensions/dump_db"]
+	path = extensions/dump_db
+	url = git://github.com/nils-werner/dump_db.git
