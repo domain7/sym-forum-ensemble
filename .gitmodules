@@ -22,3 +22,18 @@
 [submodule "extensions/xssfilter"]
 	path = extensions/xssfilter
 	url = git://github.com/symphonycms/xssfilter.git
+[submodule "extensions/asdc"]
+	path = extensions/asdc
+	url = git://github.com/pointybeard/asdc.git
+[submodule "extensions/content_type_mappings"]
+	path = extensions/content_type_mappings
+	url = git://github.com/pointybeard/content_type_mappings.git
+[submodule "extensions/forum"]
+	path = extensions/forum
+	url = git://github.com/bauhouse/forum.git
+[submodule "extensions/members"]
+	path = extensions/members
+	url = git://github.com/symphonycms/members.git
+[submodule "extensions/numberfield"]
+	path = extensions/numberfield
+	url = git://github.com/pointybeard/numberfield.git
