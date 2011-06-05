@@ -37,3 +37,6 @@
 [submodule "extensions/numberfield"]
 	path = extensions/numberfield
 	url = git://github.com/pointybeard/numberfield.git
+[submodule "workspace"]
+	path = workspace
+	url = git://github.com/domain7/sym-forum-ensemble.git

@@ -10,19 +10,18 @@
 	}
 
 	if(!defined('PHP_VERSION_ID')){
-		$version = PHP_VERSION;
-		define('PHP_VERSION_ID', ($version{0} * 10000 + $version{2} * 100 + $version{4}));
+    	$version = PHP_VERSION;
+    	define('PHP_VERSION_ID', ($version{0} * 10000 + $version{2} * 100 + $version{4}));
 	}
 
 	if (PHP_VERSION_ID >= 50300){
-		error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+	    error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 	}
 	else{
-		error_reporting(E_ALL ^ E_NOTICE);
+	    error_reporting(E_ALL ^ E_NOTICE);
 	}
 
 	set_error_handler('__errorHandler');
-	ini_set('display_errors', 1);
 
 	// Show PHP Info
 	if(isset($_REQUEST['info'])){
@@ -71,7 +70,7 @@
 	}
 
 	/***********************
-			 TESTS
+	         TESTS
 	************************/
 
 	// Check and set language
@@ -182,23 +181,26 @@
 		$conf['admin']['max_upload_size'] = '5242880';
 		$conf['symphony']['pagination_maximum_rows'] = '17';
 		$conf['symphony']['allow_page_subscription'] = '1';
-		$conf['symphony']['lang'] = Lang::get();
-		$conf['symphony']['version'] = kVERSION;
-		$conf['symphony']['pages_table_nest_children'] = 'yes';
-		$conf['symphony']['strict_error_handling'] = 'yes';
+		$conf['symphony']['lang'] = 'en';
+		$conf['symphony']['pages_table_nest_children'] = 'no';
+		$conf['symphony']['version'] = '2.2.1';
 		$conf['log']['archive'] = '1';
 		$conf['log']['maxsize'] = '102400';
-		$conf['general']['sitename'] = 'Symphony CMS';
 		$conf['image']['cache'] = '1';
 		$conf['image']['quality'] = '90';
+		$conf['database']['driver'] = 'mysql';
 		$conf['database']['character_set'] = 'utf8';
 		$conf['database']['character_encoding'] = 'utf8';
 		$conf['database']['runtime_character_set_alter'] = '1';
-		$conf['database']['query_caching'] = 'default';
-		$conf['public']['display_event_xml_in_source'] = 'yes';
+		$conf['public']['display_event_xml_in_source'] = 'no';
+		$conf['general']['sitename'] = 'Forum Ensemble';
 		$conf['region']['time_format'] = 'H:i';
 		$conf['region']['date_format'] = 'd F Y';
 		$conf['region']['datetime_separator'] = ' ';
+		$conf['maintenance_mode']['enabled'] = 'no';
+		$conf['content-type-mappings']['xml'] = 'text/xml; charset=utf-8';
+		$conf['content-type-mappings']['text'] = 'text/plain; charset=utf-8';
+		$conf['members']['cookie-prefix'] = 'sym-members';
 
 		return $conf;
 
