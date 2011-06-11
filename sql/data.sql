@@ -711,10 +711,13 @@ CREATE TABLE `sym_members_roles` (
   `handle` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `handle` (`handle`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- *** DATA: `sym_members_roles` ***
 INSERT INTO `sym_members_roles` (`id`, `name`, `handle`) VALUES (1, 'Public', 'public');
+INSERT INTO `sym_members_roles` (`id`, `name`, `handle`) VALUES (2, 'Inactive', 'inactive');
+INSERT INTO `sym_members_roles` (`id`, `name`, `handle`) VALUES (3, 'Member', 'member');
+INSERT INTO `sym_members_roles` (`id`, `name`, `handle`) VALUES (4, 'Administrator', 'administrator');
 
 -- *** STRUCTURE: `sym_members_roles_event_permissions` ***
 DROP TABLE IF EXISTS `sym_members_roles_event_permissions`;
@@ -726,9 +729,24 @@ CREATE TABLE `sym_members_roles_event_permissions` (
   `level` smallint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`,`event`,`action`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- *** DATA: `sym_members_roles_event_permissions` ***
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (1, 2, 'edit_member', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (2, 2, 'forum_post', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (3, 2, 'forum_utilities', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (4, 2, 'members_register', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (5, 2, 'members_update_password', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (6, 3, 'edit_member', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (7, 3, 'forum_post', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (8, 3, 'forum_utilities', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (9, 3, 'members_register', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (10, 3, 'members_update_password', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (11, 4, 'edit_member', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (12, 4, 'forum_post', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (13, 4, 'forum_utilities', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (14, 4, 'members_register', 'edit', 0);
+INSERT INTO `sym_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (15, 4, 'members_update_password', 'edit', 0);
 
 -- *** STRUCTURE: `sym_members_roles_forbidden_pages` ***
 DROP TABLE IF EXISTS `sym_members_roles_forbidden_pages`;
