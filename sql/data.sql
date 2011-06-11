@@ -352,7 +352,7 @@ CREATE TABLE `sym_extensions` (
   `version` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `sym_extensions` ***
 INSERT INTO `sym_extensions` (`id`, `name`, `status`, `version`) VALUES (1, 'xssfilter', 'enabled', 1.0);
@@ -369,6 +369,7 @@ INSERT INTO `sym_extensions` (`id`, `name`, `status`, `version`) VALUES (11, 'nu
 INSERT INTO `sym_extensions` (`id`, `name`, `status`, `version`) VALUES (12, 'forum', 'enabled', '2.0 Alpha');
 INSERT INTO `sym_extensions` (`id`, `name`, `status`, `version`) VALUES (13, 'members', 'enabled', 1.0);
 INSERT INTO `sym_extensions` (`id`, `name`, `status`, `version`) VALUES (14, 'dump_db', 'enabled', 1.08);
+INSERT INTO `sym_extensions` (`id`, `name`, `status`, `version`) VALUES (15, 'email_template_manager', 'enabled', 3.0);
 
 -- *** STRUCTURE: `sym_extensions_delegates` ***
 DROP TABLE IF EXISTS `sym_extensions_delegates`;
@@ -382,7 +383,7 @@ CREATE TABLE `sym_extensions_delegates` (
   KEY `extension_id` (`extension_id`),
   KEY `page` (`page`),
   KEY `delegate` (`delegate`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `sym_extensions_delegates` ***
 INSERT INTO `sym_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (1, 1, '/blueprints/events/new/', 'AppendEventFilter', 'appendEventFilter');
@@ -417,6 +418,11 @@ INSERT INTO `sym_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`
 INSERT INTO `sym_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (30, 14, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
 INSERT INTO `sym_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (31, 14, '/backend/', 'InitaliseAdminPageHead', 'initaliseAdminPageHead');
 INSERT INTO `sym_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (32, 14, '/backend/', 'AppendPageAlert', 'appendAlert');
+INSERT INTO `sym_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (33, 15, '/blueprints/events/edit/', 'AppendEventFilter', 'AppendEventFilter');
+INSERT INTO `sym_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (34, 15, '/blueprints/events/new/', 'AppendEventFilter', 'AppendEventFilter');
+INSERT INTO `sym_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (35, 15, '/frontend/', 'EventFinalSaveFilter', 'eventFinalSaveFilter');
+INSERT INTO `sym_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (36, 15, '/blueprints/events/edit/', 'AppendEventFilterDocumentation', 'AppendEventFilterDocumentation');
+INSERT INTO `sym_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (37, 15, '/blueprints/datasources/', 'DatasourcePostEdit', 'DatasourcePostEdit');
 
 -- *** STRUCTURE: `sym_fields` ***
 DROP TABLE IF EXISTS `sym_fields`;

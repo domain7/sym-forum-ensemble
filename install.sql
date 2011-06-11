@@ -561,6 +561,7 @@ INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (11, 'nu
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (12, 'forum', 'enabled', '2.0 Alpha');
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (13, 'members', 'enabled', 1.0);
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (14, 'dump_db', 'enabled', 1.08);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (15, 'email_template_manager', 'enabled', 3.0);
 
 -- *** DATA: `tbl_extensions_delegates` ***
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (1, 1, '/blueprints/events/new/', 'AppendEventFilter', 'appendEventFilter');
@@ -595,6 +596,11 @@ INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (30, 14, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (31, 14, '/backend/', 'InitaliseAdminPageHead', 'initaliseAdminPageHead');
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (32, 14, '/backend/', 'AppendPageAlert', 'appendAlert');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (33, 15, '/blueprints/events/edit/', 'AppendEventFilter', 'AppendEventFilter');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (34, 15, '/blueprints/events/new/', 'AppendEventFilter', 'AppendEventFilter');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (35, 15, '/frontend/', 'EventFinalSaveFilter', 'eventFinalSaveFilter');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (36, 15, '/blueprints/events/edit/', 'AppendEventFilterDocumentation', 'AppendEventFilterDocumentation');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (37, 15, '/blueprints/datasources/', 'DatasourcePostEdit', 'DatasourcePostEdit');
 
 -- *** DATA: `tbl_fields` ***
 INSERT INTO `tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (1, 'Name', 'name', 'input', 1, 'yes', 0, 'main', 'yes');
