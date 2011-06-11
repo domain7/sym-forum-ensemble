@@ -43,3 +43,6 @@
 [submodule "extensions/dump_db"]
 	path = extensions/dump_db
 	url = git://github.com/nils-werner/dump_db.git
+[submodule "extensions/email_template_manager"]
+	path = extensions/email_template_manager
+	url = git://github.com/creativedutchmen/email_template_manager.git

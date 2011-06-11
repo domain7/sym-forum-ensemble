@@ -305,7 +305,7 @@ CREATE TABLE `tbl_members_roles_event_permissions` (
   `level` smallint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`,`event`,`action`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 -- *** STRUCTURE: `tbl_members_roles_forbidden_pages` ***
 DROP TABLE IF EXISTS `tbl_members_roles_forbidden_pages`;
