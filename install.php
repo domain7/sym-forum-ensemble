@@ -201,6 +201,23 @@
 		$conf['content-type-mappings']['xml'] = 'text/xml; charset=utf-8';
 		$conf['content-type-mappings']['text'] = 'text/plain; charset=utf-8';
 		$conf['members']['cookie-prefix'] = 'sym-members';
+		$conf['members']['section'] = '1';
+		$conf['dump_db']['path'] = '/workspace/sql';
+		$conf['dump_db']['restore'] = 'yes';
+		$conf['dump_db']['last_sync'] = '2011-06-11T06:53:50-07:00';
+		$conf['forum']['discussion-section'] = '2';
+		$conf['forum']['comment-section'] = '3';
+		$conf['forum']['created-by-field'] = '13';
+		$conf['forum']['discussion-last-post-field'] = '15';
+		$conf['forum']['discussion-last-active-field'] = '16';
+		$conf['forum']['unread-cutoff-field'] = '14';
+		$conf['forum']['pinned-field'] = '17';
+		$conf['forum']['locked-field'] = '18';
+		$conf['forum']['comment-discussion-link-field'] = '20';
+		$conf['forum']['comment-created-by-field'] = '22';
+		$conf['forum']['comment-creation-date-field'] = '21';
+		$conf['forum']['comment-field'] = '19';
+		$conf['forum']['redirect-path'] = '/forum/';
 
 		return $conf;
 
