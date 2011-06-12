@@ -204,7 +204,7 @@
 		$conf['members']['section'] = '1';
 		$conf['dump_db']['path'] = '/workspace/sql';
 		$conf['dump_db']['restore'] = 'yes';
-		$conf['dump_db']['last_sync'] = '2011-06-11T15:12:09-07:00';
+		$conf['dump_db']['last_sync'] = '2011-06-11T17:54:31-07:00';
 		$conf['forum']['discussion-section'] = '2';
 		$conf['forum']['comment-section'] = '3';
 		$conf['forum']['created-by-field'] = '13';
