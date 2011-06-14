@@ -267,15 +267,15 @@ form p {
 form p input {
 	display: block;
 	padding: 5px;
-	width: 578px;
-	margin-left: 110px;
+	width: 538px;
+	margin-left: 150px;
 }
 form p textarea {
 	display: block;
 	padding: 5px;
-	width: 578px;
+	width: 538px;
 	height: 400px;
-	margin-left: 110px;
+	margin-left: 150px;
 }
 form p #charlimitinfo {
 	position: absolute;
@@ -290,7 +290,7 @@ form p #charlimitinfo {
 }
 form label {
 	float:left;
-	width: 90px;
+	width: 130px;
 	margin-right: 10px;
 	padding-top: 1px;
 	text-align: right;
@@ -303,7 +303,7 @@ form p.option label {
 }
 form p.option span {
 	display: block;
-	margin-left: 110px;
+	margin-left: 150px;
 }
 form p.option input {
 	display: inline;
@@ -316,9 +316,9 @@ form p.option input[type="hidden"] {
 form p select {
 	display: block;
 	height: 25px;
-	width: 578px;
+	width: 538px;
 	padding: 3px 0;
-	margin-left: 110px;
+	margin-left: 150px;
 }
 form #submission {
 	text-align: right;
@@ -337,14 +337,14 @@ form #submission .resend {
 }
 form .upload-value {
 	display: block;
-	margin-left: 110px;
+	margin-left: 150px;
 }
 form .upload-value input {
 	margin: 0;
 	width: 222px;
 }
 form .upload-value input[type=file] {
-	width: 618px;
+	width: 538px;
 }
 
 /* Forum Page */

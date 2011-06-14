@@ -4,42 +4,63 @@
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:import href="../utilities/timezone.xsl"/>
 
+<xsl:variable name="event-action" select="'members-register'"/>
+<xsl:variable name="event" select="/data/events/*[name()=$event-action]"/>
+
 <xsl:template match="data">
 	<h2 class="heading">Member Registration</h2>
-	<xsl:if test="events/save-member/username-and-password/@type = 'invalid'">
+	<xsl:for-each select="$event[@result = 'error']">
 		<div id="system-message">
-			<p class="error">The username supplied already exist.</p>
+			<p class="message">There was a problem with your registration:</p>
+			<xsl:for-each select="*[@label]">
+				<p class="error"><strong><xsl:value-of select="@label"/></strong>: <xsl:value-of select="@message"/></p>
+			</xsl:for-each>
+		</div>
+	</xsl:for-each>
+	<xsl:if test="$event[@result = 'success']">
+		<div id="system-message">
+			<p class="success">You have registered successfully. Please check your email for your activation code.</p>
 		</div>
 	</xsl:if>
-	<form method="post" action="{$current-url}">
+	<form method="post" action="" class="members-form">
 		<fieldset>
 			<p>
-				<xsl:if test="events/save-member/name">
+				<xsl:if test="$event/name">
 					<xsl:attribute name="class">error</xsl:attribute>
 				</xsl:if>
 				<label for="name">Full Name</label>
-				<input id="name" name="fields[name]" type="text" value="{events/save-member/post-values/name}" />
+				<input id="name" name="fields[name]" type="text" value="{$event/post-values/name}" />
 			</p>
 			<p>
-				<xsl:if test="events/save-member/username-and-password">
+				<xsl:if test="$event/username">
 					<xsl:attribute name="class">error</xsl:attribute>
 				</xsl:if>
 				<label for="username">Username</label>
-				<input id="username" name="fields[username-and-password][username]" type="text" value="{events/save-member/post-values/username-and-password/username}" />
+				<input id="username" name="fields[username]" type="text" value="{$event/post-values/username}" />
 			</p>
 			<p>
+				<xsl:if test="$event/password">
+					<xsl:attribute name="class">error</xsl:attribute>
+				</xsl:if>
 				<label for="password">Password</label>
-				<input id="password" name="fields[username-and-password][password]" type="password" />
+				<input id="password" name="fields[password][password]" type="password" value="{$event/post-values/password/password}" />
 			</p>
 			<p>
-				<xsl:if test="events/save-member/email-address">
+				<xsl:if test="$event/password">
+					<xsl:attribute name="class">error</xsl:attribute>
+				</xsl:if>
+				<label for="password">Confirm Password</label>
+				<input id="password" name="fields[password][confirm]" type="password" value="{$event/post-values/password/confirm}" />
+			</p>
+			<p>
+				<xsl:if test="$event/email">
 					<xsl:attribute name="class">error</xsl:attribute>
 				</xsl:if>
 				<label for="email">Email</label>
-				<input id="email" name="fields[email-address]" type="text" value="{events/save-member/post-values/email-address}" />
+				<input id="email" name="fields[email]" type="text" value="{$event/post-values/email}" />
 			</p>					
 			<p>
-				<xsl:if test="events/save-member/location">
+				<xsl:if test="$event/location">
 					<xsl:attribute name="class">error</xsl:attribute>
 				</xsl:if>
 				<label for="location">Country</label>
@@ -47,7 +68,7 @@
 					<xsl:for-each select="location/item">
 						<option value="{@value}">
 							<xsl:choose>
-								<xsl:when test="@value = 'AUS'">
+								<xsl:when test="@value = 'CAN' or @value = $event/post-values/location">
 									<xsl:attribute name="selected">selected</xsl:attribute>
 								</xsl:when>
 							</xsl:choose>
@@ -57,45 +78,46 @@
 				</select>
 			</p>	
 			<p>
-				<xsl:if test="events/save-member/city">
+				<xsl:if test="$event/city">
 					<xsl:attribute name="class">error</xsl:attribute>
 				</xsl:if>
 				<label for="city">City</label>
-				<input id="city" name="fields[city]" type="text" value="{events/save-member/post-values/city}" />
+				<input id="city" name="fields[city]" type="text" value="{$event/post-values/city}" />
 			</p>		
 			<p>
 				<label for="timezone">Timezone</label>
-				<select id="timezone" name="fields[timezone-offset]">
-					<xsl:call-template name="timezone-offset-options">
-						<xsl:with-param name="ii">-12</xsl:with-param>
-						<xsl:with-param name="count">12</xsl:with-param>
-						<xsl:with-param name="selected">
-							<xsl:choose>
-								<xsl:when test="events/save-member/post-values/timezone-offset">
-									<xsl:value-of select="events/save-member/post-values/timezone-offset"/>
-								</xsl:when>
-								<xsl:otherwise>10</xsl:otherwise>
-							</xsl:choose>
-						</xsl:with-param>	
-					</xsl:call-template>								
+				<select id="timezone" name="fields[timezone]">
+					<xsl:for-each select="/data/timezones/timezone">
+						<option value="{@value}">
+							<xsl:if test="@value = /data/member-info/entry/timezone/name or @value = $event/post-values/timezone">
+								<xsl:attribute name="selected">selected</xsl:attribute>
+							</xsl:if>
+							<xsl:value-of select="."/>
+						</option>
+					</xsl:for-each>
 				</select>
-			</p>											
+			</p>
 			<p>
-				<xsl:if test="events/save-member/website">
+				<xsl:if test="$event/website">
 					<xsl:attribute name="class">error</xsl:attribute>
 				</xsl:if>
 				<label for="website">Website</label>
-				<input id="website" name="fields[website]" type="text" value="{events/save-member/post-values/website}" />
+				<input id="website" name="fields[website]" type="text" value="{$event/post-values/website}" />
 			</p>					
 			<p class="option">
 				<label for="email-opt-in">Opt-in</label>
 				<span>
-					<input id="email-opt-in" name="fields[email-opt-in]" type="checkbox" value="yes" />
-					<xsl:text> Send me email when there is important Symphony news.</xsl:text>
+					<input id="email-opt-in" name="fields[email-opt-in]" type="checkbox" value="yes">
+						<xsl:if test="$event/post-values/email-opt-in = 'yes'">
+							<xsl:attribute name="checked">checked</xsl:attribute>
+						</xsl:if>
+					</input>
+					<xsl:text> Send me email when there is important news.</xsl:text>
 				</span>
 			</p>				
 			<div id="submission">
-				<input id="submit" name="action[save-member]" type="submit" value="Register" class="button"/>
+				<input id="submit" name="action[{$event-action}]" type="submit" value="Register" class="button"/>
+				<input name="fields[role]" type="hidden" value="Inactive" />
 				<a id="cancel" href="{$root}/" class="button">Cancel and go back</a>
 			</div>
 		</fieldset>

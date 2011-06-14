@@ -2,9 +2,9 @@
 
 	require_once(TOOLKIT . '/class.datasource.php');
 
-	Class datasourcemembers_location extends Datasource{
+	Class datasourcelocation extends Datasource{
 
-		public $dsParamROOTELEMENT = 'members-location';
+		public $dsParamROOTELEMENT = 'location';
 
 		
 
@@ -17,13 +17,13 @@
 
 		public function about(){
 			return array(
-				'name' => 'Members: Location',
+				'name' => 'Location',
 				'author' => array(
 					'name' => 'Stephen Bau',
 					'website' => 'http://home/sym/forum-update',
 					'email' => 'bauhouse@gmail.com'),
 				'version' => '1.0',
-				'release-date' => '2011-06-12T00:23:51+00:00'
+				'release-date' => '2011-06-14T14:05:02+00:00'
 			);
 		}
 
