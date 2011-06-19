@@ -640,18 +640,44 @@ INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `ac
 INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (3, 2, 'forum_utilities', 'edit', 0);
 INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (4, 2, 'members_register', 'edit', 0);
 INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (5, 2, 'members_update_password', 'edit', 0);
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (6, 3, 'edit_member', 'edit', 0);
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (7, 3, 'forum_post', 'edit', 0);
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (8, 3, 'forum_utilities', 'edit', 0);
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (9, 3, 'members_register', 'edit', 0);
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (10, 3, 'members_update_password', 'edit', 0);
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (11, 4, 'edit_member', 'edit', 0);
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (12, 4, 'forum_post', 'edit', 0);
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (13, 4, 'forum_utilities', 'edit', 0);
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (14, 4, 'members_register', 'edit', 0);
-INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (15, 4, 'members_update_password', 'edit', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (19, 3, 'forum_post', 'edit', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (18, 3, 'forum_post', 'create', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (17, 3, 'edit_member', 'edit', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (16, 3, 'edit_member', 'create', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (39, 4, 'forum_post', 'edit', 2);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (38, 4, 'forum_post', 'create', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (37, 4, 'edit_member', 'edit', 2);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (36, 4, 'edit_member', 'create', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (20, 3, 'forum_utilities', 'create', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (21, 3, 'forum_utilities', 'edit', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (22, 3, 'members_register', 'create', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (23, 3, 'members_register', 'edit', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (24, 3, 'members_update_password', 'create', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (25, 3, 'members_update_password', 'edit', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (26, 1, 'edit_member', 'create', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (27, 1, 'edit_member', 'edit', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (28, 1, 'forum_post', 'create', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (29, 1, 'forum_post', 'edit', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (30, 1, 'forum_utilities', 'create', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (31, 1, 'forum_utilities', 'edit', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (32, 1, 'members_register', 'create', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (33, 1, 'members_register', 'edit', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (34, 1, 'members_update_password', 'create', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (35, 1, 'members_update_password', 'edit', 0);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (40, 4, 'forum_utilities', 'create', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (41, 4, 'forum_utilities', 'edit', 2);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (42, 4, 'members_register', 'create', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (43, 4, 'members_register', 'edit', 2);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (44, 4, 'members_update_password', 'create', 1);
+INSERT INTO `tbl_members_roles_event_permissions` (`id`, `role_id`, `event`, `action`, `level`) VALUES (45, 4, 'members_update_password', 'edit', 2);
 
 -- *** DATA: `tbl_members_roles_forbidden_pages` ***
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (1, 1, 2);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (2, 1, 4);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (3, 1, 5);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (4, 1, 6);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (5, 1, 10);
+INSERT INTO `tbl_members_roles_forbidden_pages` (`id`, `role_id`, `page_id`) VALUES (6, 1, 13);
 
 -- *** DATA: `tbl_pages` ***
 INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (1, NULL, 'Forum', 'forum', NULL, 'dpage', 'forum_discussions,forum_read_discussions,member_info,search_comments', 'forum_utilities', 1);
