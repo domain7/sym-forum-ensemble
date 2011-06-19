@@ -15,7 +15,7 @@
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
 		public $dsParamFILTERS = array(
-				'19' => '{$discussion-id}',
+				'20' => '{$discussion-id}',
 		);
 
 		public $dsParamINCLUDEDELEMENTS = array(
@@ -41,7 +41,7 @@
 					'website' => 'http://home/sym/forum-update',
 					'email' => 'bauhouse@gmail.com'),
 				'version' => '1.0',
-				'release-date' => '2011-06-19T04:41:40+00:00'
+				'release-date' => '2011-06-19T05:39:50+00:00'
 			);
 		}
 
