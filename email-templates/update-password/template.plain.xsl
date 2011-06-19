@@ -15,9 +15,9 @@
 
 <xsl:template match="data/etm-member/entry">Dear <xsl:value-of select="name" />,
 
-Your account has been successfully activated and you are now able to access <xsl:value-of select="$website-name" />. To access the site, enter your username and password at the login page: <xsl:value-of select="concat($root, '/')" />.
+Your password has been successfully updated for <xsl:value-of select="$website-name" />.
 
-If you have problems accessing your account, let us know and we'll do our best to help.
+If you believe your password has been reset by someone else, let us know and we'll restore the security of your account.
 
 Regards,
 

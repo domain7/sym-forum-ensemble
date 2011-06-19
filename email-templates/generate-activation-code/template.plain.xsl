@@ -15,7 +15,11 @@
 
 <xsl:template match="data/etm-member/entry">Dear <xsl:value-of select="name" />,
 
-Your account has been successfully activated and you are now able to access <xsl:value-of select="$website-name" />. To access the site, enter your username and password at the login page: <xsl:value-of select="concat($root, '/')" />.
+As requested, we are sending you an activation code for <xsl:value-of select="$website-name" />.
+
+To activate your account, head to <xsl:value-of select="concat($root, '/members/activate/', activation/code, '/' , email, '/')" />
+
+This code will expire in one hour, so if you miss your window, simply head to the link above and click "Resend the activation email" to get a new one.
 
 If you have problems accessing your account, let us know and we'll do our best to help.
 
