@@ -31,10 +31,10 @@
 	<h3>Filters</h3>
 	<ul>
 		<li>
-			<a href="{$root}/" title="Filter discussions">All Discussions</a>
+			<a href="{$root}/forum/" title="Filter discussions">All Discussions</a>
 		</li>
 		<li>
-			<a href="{$root}/forum-filter/" title="Filter discussions">My Discussions</a>
+			<a href="{$root}/forum/forum-filter/" title="Filter discussions">My Discussions</a>
 		</li>
 	</ul>
 </xsl:template>
