@@ -10,7 +10,7 @@
 	<xsl:param name="forum-id"/>
 
 	<xsl:variable name="created-by">
-		<xsl:value-of select="concat('Created by ', created-by, ' on ')"/>
+		<xsl:value-of select="concat('Created by ', created-by/item, ' on ')"/>
 		<xsl:call-template name="format-date">
 			<xsl:with-param name="date" select="creation-date"/>
 			<xsl:with-param name="format" select="'d m Y, t'"/>

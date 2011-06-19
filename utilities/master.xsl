@@ -13,7 +13,7 @@
 
 <xsl:variable name="member-logged-in" select="/data/events/member-login-info/@logged-in"/>
 <xsl:variable name="member" select="/data/member-info/entry"/>
-<xsl:variable name="permissions" select="/data/member-info/entry/permissions"/>
+<xsl:variable name="permissions" select="/data/member-info/entry/role"/>
 
 <xsl:template match="/">
 	<html>

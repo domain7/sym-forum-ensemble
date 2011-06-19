@@ -22,7 +22,7 @@
 			</fieldset>
 		</form>
 	</div>
-	<xsl:if test="$member/role = 'Author' or $member/role = 'Administrator'">
+	<xsl:if test="$member/role/name = 'Administrator'">
 		<xsl:call-template name="discussion-options">
 			<xsl:with-param name="closed" select="$closed"/>
 			<xsl:with-param name="sticky" select="$pinned"/>
@@ -50,54 +50,58 @@
 	<xsl:apply-templates select="entry"/>
 
 	<xsl:call-template name="pagination">
-	    <xsl:with-param name="pagination-element" select="pagination" />
-	    <xsl:with-param name="display-number" select="'7'" />
-	    <xsl:with-param name="url">
-	    	<xsl:value-of select="$root"/>
-	    	<xsl:text>/forum/discussions/</xsl:text>
-	    	<xsl:value-of select="$discussion-id"/>
-	    	<xsl:text>/$/</xsl:text>
-	    </xsl:with-param>
+		<xsl:with-param name="pagination-element" select="pagination" />
+		<xsl:with-param name="display-number" select="'7'" />
+		<xsl:with-param name="url">
+			<xsl:value-of select="$root"/>
+			<xsl:text>/forum/discussions/</xsl:text>
+			<xsl:value-of select="$discussion-id"/>
+			<xsl:text>/$/</xsl:text>
+		</xsl:with-param>
 	</xsl:call-template>
-
-	<xsl:if test="($permissions/add_comment and $closed = 'No') or ($member/role = 'Author')">
-		<form method="post" action="{$current-url}">
-			<fieldset>
-				<p>
-					<xsl:if test="/data/events/forum-post[@result = 'error']/comment">
-						<xsl:attribute name="class">error</xsl:attribute>
-					</xsl:if>
-					<label>Comment</label>
-					<span id="wmd-editor" class="wmd-panel">
-						<span id="wmd-button-bar"></span>
-						<textarea id="wmd-input" name="fields[comment]">
-							<xsl:value-of select="/data/events/forum-post/post-values/comment"/>					
-						</textarea>
-					</span>
-				</p>
-				<input name="fields[parent-id]" type="hidden" value="{$discussion-id}"/>
-				<input name="fields[created-by]" type="hidden" value="{$member/@id}"/>
-				<input name="redirect" type="hidden">
-					<xsl:attribute name="value">
-						<xsl:value-of select="concat($root, '/forum/discussions/', $discussion-id, '/')"/>
-						<xsl:choose>
-							<xsl:when test="/data/forum-comments/pagination/@total-entries mod 20 = 0">
-								<xsl:value-of select="/data/forum-comments/pagination/@total-pages + 1"/>
-							</xsl:when>
-							<xsl:otherwise>
-								<xsl:value-of select="/data/forum-comments/pagination/@total-pages"/>
-							</xsl:otherwise>
-						</xsl:choose>
-						<xsl:value-of select="concat('/#position-', /data/forum-comments/pagination/@total-entries + 1)"/>	
-					</xsl:attribute>
-				</input>
-				<div id="submission">
-					<input id="submit" name="action[forum-new-comment]" type="submit" value="Post comment" class="button" />
-					<a id="cancel" href="{$root}/forum/" class="button">Cancel and go back</a>
-				</div>
-			</fieldset>
-		</form>
+	<xsl:if test="$permissions/@id &gt;= 3 and $closed = 'No'">
+		<xsl:call-template name="discussion-comment-form" />
 	</xsl:if>
+</xsl:template>
+
+<!-- Comment Form -->
+<xsl:template name="discussion-comment-form">
+	<xsl:param name="comment-url">
+		<xsl:value-of select="concat($root, '/forum/discussions/', $discussion-id, '/')"/>
+		<xsl:choose>
+			<xsl:when test="/data/forum-comments/pagination/@total-entries mod 20 = 0">
+				<xsl:value-of select="/data/forum-comments/pagination/@total-pages + 1"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="/data/forum-comments/pagination/@total-pages"/>
+			</xsl:otherwise>
+		</xsl:choose>
+		<xsl:value-of select="concat('/#position-', /data/forum-comments/pagination/@total-entries + 1)"/>
+	</xsl:param>
+	<form method="post" action="{$current-url}" id="comment-form">
+		<fieldset>
+			<p>
+				<xsl:if test="/data/events/forum-post[@result = 'error']/comment">
+					<xsl:attribute name="class">error</xsl:attribute>
+				</xsl:if>
+				<label>Comment</label>
+				<span id="wmd-editor" class="wmd-panel">
+					<span id="wmd-button-bar"></span>
+					<textarea id="wmd-input" name="fields[comment]">
+						<xsl:value-of select="/data/events/forum-post/post-values/comment"/>
+					</textarea>
+				</span>
+			</p>
+			<input name="fields[parent-id]" type="hidden" value="{$discussion-id}"/>
+			<input name="fields[created-by]" type="hidden" value="{$member/@id}"/>
+			<input name="redirect" type="hidden" value="{$comment-url}" />
+			<div id="submission">
+				<input id="submit" name="action[forum-new-comment]" type="submit" value="Post comment" class="button" />
+				<a id="cancel" href="{$root}/forum/" class="button">Cancel and go back</a>
+			</div>
+			<input name="fields[comment-position]" type="hidden" value="{$comment-url}" />
+		</fieldset>
+	</form>
 </xsl:template>
 
 <!-- Comments entry template -->
@@ -115,14 +119,14 @@
 		<div class="meta">
 			<ul class="avatar">
 				<li class="gicon">
-					<img src="http://www.gravatar.com/avatar/{created-by/@email-address-hash}?s=50&amp;d=http%3A%2F%2Fsymphony-cms.com%2Fworkspace%2Fassets%2Fimages%2Ficons%2Fsymphony-avatar.png" width="50" height="50"/>
+					<img src="http://www.gravatar.com/avatar/{/data/forum-members/entry[@id = current()/created-by/item/@id]/email-address/@hash}?s=50&amp;d=http%3A%2F%2Fsymphony-cms.com%2Fworkspace%2Fassets%2Fimages%2Ficons%2Fsymphony-avatar.png" width="50" height="50"/>
 				</li>
 				<li class="position"><a href="#position-{$comment-position}"><xsl:value-of select="$comment-position"/></a></li>
 			</ul>
 			<ul>
 				<li class="member">
-					<a href="{$root}/members/{created-by}/">
-						<xsl:value-of select="created-by"/>
+					<a href="{$root}/members/{created-by/item}/">
+						<xsl:value-of select="created-by/item"/>
 					</a>
 				</li>
 				<li class="date">
