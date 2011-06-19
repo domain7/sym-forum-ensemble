@@ -3,40 +3,104 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 
+<xsl:param name="member" select="/data/member-email/entry" />
+<xsl:param name="event-action" select="'members-activate-account'"/>
+<xsl:param name="event" select="/data/events/*[name()=$event-action]"/>
+<xsl:param name="resend-event-action" select="'members-regenerate-activation-code'"/>
+<xsl:param name="resend-event" select="/data/events/*[name()=$resend-event-action]"/>
+
 <xsl:template match="data">
-	<xsl:choose>
-		<xsl:when test="$mode = 'success'"><xsl:apply-templates select="." mode="success"/></xsl:when>
-		<xsl:when test="$mode = 'failed'"><xsl:apply-templates select="." mode="failed"/></xsl:when>		
-		<xsl:when test="$mode = 'sent'"><xsl:apply-templates select="." mode="sent"/></xsl:when>
-		<xsl:when test="$member-logged-in = 'no'"><xsl:apply-templates select="." mode="guest"/></xsl:when>
-		<xsl:when test="$member/role = 'Inactive'"><xsl:apply-templates select="." mode="activate"/></xsl:when>
-		<xsl:otherwise><xsl:apply-templates select="." mode="already-active"/></xsl:otherwise>
-	</xsl:choose>
+	<section class="main">
+		<div class="content">
+			<xsl:choose>
+				<xsl:when test="$event/@result = 'error'"><xsl:apply-templates select="." mode="failed"/></xsl:when>
+				<xsl:when test="$event/@result = 'success' or events/member-login-info/@logged-in = 'yes'"><xsl:apply-templates select="." mode="success"/></xsl:when>
+				<xsl:when test="$member/activation/@activated = 'yes'"><xsl:apply-templates select="." mode="already-active"/></xsl:when>
+				<xsl:when test="$code = 'resend'"><xsl:apply-templates select="." mode="resend"/></xsl:when>
+				<xsl:otherwise><xsl:apply-templates select="." mode="activate"/></xsl:otherwise>
+			</xsl:choose>
+		</div>
+	</section>
 </xsl:template>
 
 <xsl:template match="data" mode="activate">
 	<h2 class="heading">Account Activation</h2>
-	<h3>
-		<xsl:value-of select="substring-after($member/name, ' ')"/>
-		<xsl:value-of select="concat(', ', $member/name)"/>
-	</h3>
-	<p>Thanks for your interest in being a part of the Symphony family, <xsl:value-of select="$member/username-and-password/@username"/>!</p>
-	<p>There is just one mission left: we have sent you an email with a secret code and we need you to enter it below to activate your account.</p>
-	<p><strong>The code expires in one hour.</strong></p>
-	<form method="post" action="{$current-url}">
+	<xsl:if test="$member"><h3>Hello, <xsl:value-of select="$member/name"/></h3></xsl:if>
+	<p>Thanks for becoming a member of this site<xsl:if test="$member">, <xsl:value-of select="$member/username"/></xsl:if>!</p>
+	<p>There is just one mission left: we have sent you an email with a secret code and we need you to enter it below to activate your account. If the code has expired, you'll need to <a href="{$root}/{$root-page}/{$current-page}/resend/{$email}">generate a new activation code</a>.</p>
+	<xsl:choose>
+		<xsl:when test="$member/activation/code">
+			<p><strong>The code expires at <xsl:call-template name="format-time"><xsl:with-param name="time" select="$member/activation/expires/@time" /><xsl:with-param name="format" select="'t'" /></xsl:call-template>.</strong></p>
+		</xsl:when>
+	</xsl:choose>
+	<xsl:for-each select="$event[@result = 'error']/*">
+		<xsl:choose>
+			<xsl:when test="name() = 'error'">
+				<p class="error"><xsl:value-of select="@message" /></p>
+			</xsl:when>
+			<xsl:otherwise>
+				<p class="error"><strong><xsl:value-of select="@label" /></strong>: <xsl:value-of select="@message" /></p>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:for-each>
+	<xsl:for-each select="$event[@result = 'success']/*">
+		<p class="error">Your account was successfully activated.</p>
+	</xsl:for-each>
+	<form method="post" action="{$current-url}" class="members-form">
 		<fieldset>
 			<p>
-				<xsl:if test="events/save-member/name">
+				<xsl:if test="$event/email">
 					<xsl:attribute name="class">error</xsl:attribute>
 				</xsl:if>
-				<label for="name">Code</label>
-				<input id="name" name="fields[code]" type="text" value="" />
+				<label for="name">Email</label>
+				<input id="email" name="fields[email]" type="text" value="{$email}" />
+			</p>
+			<p>
+				<xsl:if test="$event/activation">
+					<xsl:attribute name="class">error</xsl:attribute>
+				</xsl:if>
+				<label for="activation">Activation Code</label>
+				<input id="activation" name="fields[activation]" type="text" value="{$code}" />
 			</p>
 			<div id="submission">
-				<input id="submit" class="resend button" name="action[resend-activation-email]" type="submit" value="Resend the activation email" />
-				<input id="submit" name="action[activate-account]" type="submit" value="Activate account" class="button"/>
+				<input name="redirect" type="hidden" value="{$root}/" />
+				<input id="submit" name="action[members-activate-account]" type="submit" value="Activate account" class="button"/>
 			</div>
-			<input name="redirect" type="hidden" value="{$root}" />
+		</fieldset>
+	</form>
+</xsl:template>
+
+<xsl:template match="data" mode="resend">
+	<h2 class="heading">Account Activation</h2>
+	<xsl:if test="$member"><h3>Hello, <xsl:value-of select="$member/name"/></h3></xsl:if>
+	<p>Thanks for becoming a member of this site<xsl:if test="$member">, <xsl:value-of select="$member/username"/></xsl:if>!</p>
+	<p>If your activation code has expired, enter your email below to send a new activation code. If you have received the activation code, <a href="{$root}/{$root-page}/{$current-page}/">enter the code here</a>.</p>
+	<xsl:choose>
+		<xsl:when test="$member/activation/code">
+			<p><strong>The code expires at <xsl:call-template name="format-time"><xsl:with-param name="time" select="$member/activation/expires/@time" /><xsl:with-param name="format" select="'t'" /></xsl:call-template>.</strong></p>
+		</xsl:when>
+	</xsl:choose>
+	<xsl:if test="$resend-event[@result = 'error']/error">
+		<p class="error"><strong><xsl:value-of select="$resend-event/error/@message" /></strong>: Enter a valid email address.</p>
+	</xsl:if>
+	<xsl:for-each select="$resend-event[@result = 'error']/*[name() != 'error' and name() != 'post-values']">
+		<p class="error"><strong><xsl:value-of select="@label" /></strong>: <xsl:value-of select="@message" /></p>
+	</xsl:for-each>
+	<xsl:for-each select="$resend-event[@result = 'success']/activation-code">
+		<p class="success">The code was emailed to you at <xsl:value-of select="$member/email" /></p>
+	</xsl:for-each>
+	<form method="post" action="{$current-url}" class="members-form">
+		<fieldset>
+			<p>
+				<xsl:if test="$event/email">
+					<xsl:attribute name="class">error</xsl:attribute>
+				</xsl:if>
+				<label for="name">Email</label>
+				<input id="email" name="fields[email]" type="text" value="{$email}" />
+			</p>
+			<div id="submission">
+				<input id="resend" class="button" name="action[members-regenerate-activation-code]" type="submit" value="Resend the activation email" />
+			</div>
 		</fieldset>
 	</form>
 </xsl:template>
@@ -50,7 +114,7 @@
 <xsl:template match="data" mode="already-active">
 	<h2 class="heading">Account Activation</h2>
 	<h3>You're already an active agent</h3>
-	<p>Agent <xsl:value-of select="$member/name"/>, our records show that you are already on active duty.</p>
+	<p>Agent <xsl:value-of select="$member/name"/>, our records show that you are already on active duty.<xsl:if test="$logged-in = 'no'"> You may want to <a href="{$root}/login/">log in</a>, now that your account has been activated.</xsl:if></p>
 	<p>Our agency needs you, keep up the good work!</p>
 </xsl:template>
 
