@@ -9,7 +9,7 @@
 <xsl:param name="url-query"/>
 
 <xsl:template match="data">
-	<xsl:if test="$logged-in = 'true'">
+	<xsl:if test="$member-logged-in = 'yes'">
 		<div id="toolbox">
 			<a id="create-entry" href="{$root}/forum/discussions/new/" class="button">Start a new discussion</a>
 		</div>
@@ -65,7 +65,7 @@
 		<xsl:if test="position() mod 2 = 0"> alternate </xsl:if>
 		<xsl:if test="pinned = 'Yes'"> sticky </xsl:if>
 		<xsl:if test="closed = 'Yes'"> closed </xsl:if>
-		<xsl:if test="$logged-in = 'true' and ($new-comments &gt; 0 or $read-replies = 'NaN')"> unread </xsl:if>
+		<xsl:if test="$member-logged-in = 'yes' and ($new-comments &gt; 0 or $read-replies = 'NaN')"> unread </xsl:if>
 		<xsl:if test="position() = last()"> last </xsl:if>
 	</xsl:variable>
 

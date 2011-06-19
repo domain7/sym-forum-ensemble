@@ -40,7 +40,7 @@
 			</fieldset>
 		</form>
 	</div>
-	<xsl:if test="$logged-in = 'true'">
+	<xsl:if test="$member-logged-in = 'yes'">
 		<h3>Actions</h3>
 		<ul>
 			<li>
@@ -118,7 +118,7 @@
 		<xsl:if test="position() mod 2 = 0"> alternate </xsl:if>
 		<xsl:if test="pinned = 'Yes'"> sticky </xsl:if>
 		<xsl:if test="closed = 'Yes'"> closed </xsl:if>
-		<xsl:if test="$logged-in = 'true' and ($new-comments &gt; 0 or string($read-replies) = 'NaN')"> unread </xsl:if>
+		<xsl:if test="$member-logged-in = 'yes' and ($new-comments &gt; 0 or string($read-replies) = 'NaN')"> unread </xsl:if>
 		<xsl:if test="position() = last()"> last </xsl:if>
 	</xsl:variable>
 

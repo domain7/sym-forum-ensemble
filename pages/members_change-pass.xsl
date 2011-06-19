@@ -3,52 +3,66 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 
+<xsl:variable name="event-action" select="'members-update-password'"/>
+<xsl:variable name="event" select="/data/events/*[name()=$event-action]"/>
+
 <xsl:template match="data">
-	<xsl:choose>
-		<xsl:when test="$mode = 'success'"><xsl:apply-templates select="." mode="success"/></xsl:when>
-		<xsl:when test="$mode = 'failed'"><xsl:apply-templates select="." mode="failed"/></xsl:when>		
-		<xsl:otherwise><xsl:apply-templates select="." mode="change-pass"/></xsl:otherwise>
-	</xsl:choose>
+	<section class="main">
+		<div class="content">
+			<xsl:choose>
+				<xsl:when test="$event/@result = 'success'"><xsl:apply-templates select="." mode="success"/></xsl:when>
+				<xsl:when test="$event/@result = 'error'"><xsl:apply-templates select="." mode="failed"/></xsl:when>
+				<xsl:otherwise><xsl:apply-templates select="." mode="change-pass"/></xsl:otherwise>
+			</xsl:choose>
+		</div>
+	</section>
 </xsl:template>
 
 <xsl:template match="data" mode="change-pass">
 	<h2 class="heading">Change your password</h2>
-	<xsl:call-template name="change-password-form"/>
+	<xsl:apply-templates select="member-info/entry" mode="update-password" />
 </xsl:template>
 
 <xsl:template match="data" mode="success">
 	<h2 class="heading">Change your password</h2>
 	<h3>Success!</h3>
-	<p>Password changed successfully.</p>
+	<p>Your password was updated successfully.</p>
 </xsl:template>
 
 <xsl:template match="data" mode="failed">
 	<h2 class="heading">Change your password</h2>
-	<h3>Oh Noes!</h3>
-	<p class="error">The old password provided doesn't seem to be correct.</p>
-	<xsl:call-template name="change-password-form"/>
+	<div id="system-message">
+		<h3>Oh Noes!</h3>
+		<p class="error">The password confirmation did not match the original password. Try again.</p>
+	</div>
+	<xsl:apply-templates select="member-info/entry" mode="update-password" />
 </xsl:template>
 
-<xsl:template name="change-password-form">
-	<form method="post" action="{$current-url}">
+<xsl:template match="member-info/entry" mode="update-password">
+	<form method="post" class="members-form">
 		<fieldset>
 			<p>
-				<xsl:if test="events/member-change-password/old-password">
+				<xsl:if test="$event/password">
 					<xsl:attribute name="class">error</xsl:attribute>
 				</xsl:if>
-				<label for="name">Old Password</label>
-				<input id="name" name="fields[old-password]" type="password" />
+				<label for="password">Password</label>
+				<input id="password" name="fields[password][password]" type="password" />
 			</p>
 			<p>
-				<xsl:if test="events/member-change-password/new-password">
+				<xsl:if test="$event/password">
 					<xsl:attribute name="class">error</xsl:attribute>
 				</xsl:if>
-				<label for="name">New Password</label>
-				<input id="name" name="fields[new-password]" type="password" />
+				<label for="confirm-password">Confirm Password</label>
+				<input id="confirm-password" name="fields[password][confirm]" type="password" />
 			</p>
 			<div id="submission">
-				<input id="submit" name="action[member-change-password]" type="submit" value="Change Password" class="button"/>
-				<a id="cancel" href="{$root}/members/{$member/username-and-password/@username}/" class="button">Cancel and go back</a>
+				<input name="id" type="hidden" value="{@id}" />
+				<input name="fields[name]" type="hidden" value="{name}" />
+				<input name="fields[username]" type="hidden" value="{username}" />
+				<input name="fields[email]" type="hidden" value="{email}" />
+				<input name="fields[role]" type="hidden" value="{role/@id}" />
+				<input id="submit" name="action[{$event-action}]" type="submit" value="Change Password" class="button"/>
+				<a id="cancel" href="{$root}/members/{username}/" class="button">Cancel and go back</a>
 			</div>
 		</fieldset>
 	</form>

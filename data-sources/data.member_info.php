@@ -21,7 +21,8 @@
 				'name',
 				'username',
 				'password',
-				'email-address',
+				'email',
+				'role',
 				'role: permissions',
 				'activation',
 				'website',
@@ -42,10 +43,10 @@
 				'name' => 'Member Info',
 				'author' => array(
 					'name' => 'Stephen Bau',
-					'website' => 'http://home/domain7/team-members',
-					'email' => 'stephen@domain7.com'),
+					'website' => 'http://home/sym/forum-update',
+					'email' => 'bauhouse@gmail.com'),
 				'version' => '1.0',
-				'release-date' => '2011-04-01T19:12:46+00:00'
+				'release-date' => '2011-06-19T02:12:29+00:00'
 			);
 		}
 

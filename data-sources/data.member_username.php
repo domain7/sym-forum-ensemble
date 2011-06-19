@@ -15,14 +15,14 @@
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'yes';
 
 		public $dsParamFILTERS = array(
-				'148' => '{$member}',
+				'2' => '{$member}',
 		);
 
 		public $dsParamINCLUDEDELEMENTS = array(
 				'name',
 				'username',
 				'password',
-				'email-address',
+				'email',
 				'role',
 				'activation',
 				'website',
@@ -43,10 +43,10 @@
 				'name' => 'Member: Username',
 				'author' => array(
 					'name' => 'Stephen Bau',
-					'website' => 'http://chnl7.com',
-					'email' => 'stephen@domain7.com'),
+					'website' => 'http://home/sym/forum-update',
+					'email' => 'bauhouse@gmail.com'),
 				'version' => '1.0',
-				'release-date' => '2011-05-04T18:28:12+00:00'
+				'release-date' => '2011-06-19T02:03:42+00:00'
 			);
 		}
 

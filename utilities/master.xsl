@@ -11,9 +11,9 @@
 	encoding="UTF-8"
 	indent="yes" />
 
-<xsl:variable name="member" select="/data/events/member-login-info"/>
-<xsl:variable name="logged-in" select="/data/events/member-login-info/@logged-in"/>
-<xsl:variable name="permissions" select="data/events/member-login-info/permissions/forum"/>
+<xsl:variable name="member-logged-in" select="/data/events/member-login-info/@logged-in"/>
+<xsl:variable name="member" select="/data/member-info/entry"/>
+<xsl:variable name="permissions" select="/data/member-info/entry/permissions"/>
 
 <xsl:template match="/">
 	<html>
@@ -29,14 +29,14 @@
 		<body>
 			<div id="masthead">
 				<div>
-					<h1><a href="{$root}"><xsl:value-of select="$website-name"/></a></h1>
+					<h1><a href="{$root}/"><xsl:value-of select="$website-name"/></a></h1>
 					<xsl:call-template name="login-panel"/>
 				</div>
 			</div>
 			<div id="package">
 				<div id="sidebar">
 					<xsl:apply-templates select="data" mode="side-panel"/>
-					<xsl:call-template name="whos-online"/>
+					<!-- xsl:call-template name="whos-online"/ -->
 				</div>
 				<div id="content">
 					<xsl:apply-templates/>
@@ -65,32 +65,32 @@
 		<fieldset>
 			<ul>
 				<xsl:choose>
-					<xsl:when test="/data/events/member-login-info/role = 'Inactive'">
+					<xsl:when test="/data/member-info/entry/role = 'Inactive'">
 						<li>Account is not active.</li>
 						<li><a class="button" href="{$root}/members/activate/">Activate</a></li>
 						<li> or </li>
 						<li><a class="button" href="?member-action=logout">Logout</a></li>
 					</xsl:when>
-					<xsl:when test="/data/events/member-login-info/@logged-in = 'true'">
+					<xsl:when test="/data/events/member-login-info/@logged-in = 'yes'">
 						<li>
-							<a href="{$root}/members/{/data/events/member-login-info/username-and-password/@username}/">
+							<a href="{$root}/members/{/data/member-info/entry/username}/">
 								<xsl:text>Hello, </xsl:text>
-								<xsl:value-of select="/data/events/member-login-info/username-and-password/@username"/>
+								<xsl:value-of select="/data/member-info/entry/name"/>
 							</a>
 						</li>
 						<li>
 							<a class="button" href="?member-action=logout">Logout</a>
 						</li>
 					</xsl:when>
-					<xsl:when test="/data/events/member-login-info/@failed-login-attempt = 'true'">
+					<xsl:when test="/data/events/member-login-info/@result = 'error'">
 						<li>Login Failed, </li>
 						<li><input id="submit" type="submit" name="reset" value="Try Again" class="button"/></li>
 						<li> or </li>
 						<li><a class="button" href="{$root}/members/reset-pass/">Reset Password</a></li>
 					</xsl:when>
 					<xsl:otherwise>
-						<li><input name="username" title="username" type="text" value="username" class="clear-on-focus"/></li>
-						<li><input name="password" title="chipmonk" type="password" value="chipmonk" class="clear-on-focus"/></li>
+						<li><input name="fields[username]" title="username" type="text" value="username" class="clear-on-focus"/></li>
+						<li><input name="fields[password]" title="chipmonk" type="password" value="chipmonk" class="clear-on-focus"/></li>
 						<li><input name="redirect" type="hidden" value="{$root}/"/><input id="submit" type="submit" name="member-action[login]" value="Log In" class="button"/></li>
 						<li class="register"><span>or </span><a href="{$root}/members/new/" class="register button">Register an Account</a></li>
 					</xsl:otherwise>

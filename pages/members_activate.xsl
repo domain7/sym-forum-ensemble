@@ -8,7 +8,7 @@
 		<xsl:when test="$mode = 'success'"><xsl:apply-templates select="." mode="success"/></xsl:when>
 		<xsl:when test="$mode = 'failed'"><xsl:apply-templates select="." mode="failed"/></xsl:when>		
 		<xsl:when test="$mode = 'sent'"><xsl:apply-templates select="." mode="sent"/></xsl:when>
-		<xsl:when test="$logged-in = 'false'"><xsl:apply-templates select="." mode="guest"/></xsl:when>
+		<xsl:when test="$member-logged-in = 'no'"><xsl:apply-templates select="." mode="guest"/></xsl:when>
 		<xsl:when test="$member/role = 'Inactive'"><xsl:apply-templates select="." mode="activate"/></xsl:when>
 		<xsl:otherwise><xsl:apply-templates select="." mode="already-active"/></xsl:otherwise>
 	</xsl:choose>
