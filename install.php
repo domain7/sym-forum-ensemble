@@ -202,9 +202,15 @@
 		$conf['content-type-mappings']['text'] = 'text/plain; charset=utf-8';
 		$conf['members']['cookie-prefix'] = 'sym-members';
 		$conf['members']['section'] = '1';
+		$conf['members']['generate-recovery-code-template'] = 'etm-generate-activation-code';
+		$conf['members']['reset-password-auto-login'] = 'yes';
+		$conf['members']['regenerate-activation-code-template'] = 'etm-regenerate-activation-code';
+		$conf['members']['reset-password-template'] = 'etm-reset-password';
+		$conf['members']['activate-account-template'] = 'etm-membership-activated';
+		$conf['members']['activate-account-auto-login'] = 'yes';
 		$conf['dump_db']['path'] = '/workspace/sql';
 		$conf['dump_db']['restore'] = 'yes';
-		$conf['dump_db']['last_sync'] = '2011-06-11T17:54:31-07:00';
+		$conf['dump_db']['last_sync'] = '2011-06-19T08:26:47-07:00';
 		$conf['forum']['discussion-section'] = '2';
 		$conf['forum']['comment-section'] = '3';
 		$conf['forum']['created-by-field'] = '13';
