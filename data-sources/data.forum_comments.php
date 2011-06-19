@@ -38,10 +38,10 @@
 				'name' => 'Forum: Comments',
 				'author' => array(
 					'name' => 'Stephen Bau',
-					'website' => 'http://home/dev/project',
-					'email' => 'stephen@domain7.com'),
+					'website' => 'http://home/sym/forum-update',
+					'email' => 'bauhouse@gmail.com'),
 				'version' => '1.0',
-				'release-date' => '2011-05-17T05:44:05+00:00'
+				'release-date' => '2011-06-19T04:41:40+00:00'
 			);
 		}
 

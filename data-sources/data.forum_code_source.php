@@ -32,10 +32,10 @@
 				'name' => 'Forum: Code Source',
 				'author' => array(
 					'name' => 'Stephen Bau',
-					'website' => 'http://domain7.com',
-					'email' => 'stephen@domain7.com'),
+					'website' => 'http://home/sym/forum-update',
+					'email' => 'bauhouse@gmail.com'),
 				'version' => '1.0',
-				'release-date' => '2011-05-09T20:50:05+00:00'
+				'release-date' => '2011-06-19T04:41:33+00:00'
 			);
 		}
 

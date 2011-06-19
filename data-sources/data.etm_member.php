@@ -46,7 +46,7 @@
 					'website' => 'http://home/sym/forum-update',
 					'email' => 'bauhouse@gmail.com'),
 				'version' => '1.0',
-				'release-date' => '2011-06-11T22:53:47+00:00'
+				'release-date' => '2011-06-19T04:41:23+00:00'
 			);
 		}
 

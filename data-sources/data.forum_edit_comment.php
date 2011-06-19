@@ -33,10 +33,10 @@
 				'name' => 'Forum: Edit Comment',
 				'author' => array(
 					'name' => 'Stephen Bau',
-					'website' => 'http://home/domain7/team-members',
-					'email' => 'stephen@domain7.com'),
+					'website' => 'http://home/sym/forum-update',
+					'email' => 'bauhouse@gmail.com'),
 				'version' => '1.0',
-				'release-date' => '2011-04-10T15:32:10+00:00'
+				'release-date' => '2011-06-19T04:42:00+00:00'
 			);
 		}
 

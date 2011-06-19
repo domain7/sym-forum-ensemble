@@ -18,7 +18,8 @@
 		);
 
 		public $dsParamINCLUDEDELEMENTS = array(
-				'name'
+				'name',
+				'username'
 		);
 
 
@@ -35,7 +36,7 @@
 					'website' => 'http://home/sym/forum-update',
 					'email' => 'bauhouse@gmail.com'),
 				'version' => '1.0',
-				'release-date' => '2011-06-12T00:42:45+00:00'
+				'release-date' => '2011-06-19T04:43:11+00:00'
 			);
 		}
 
