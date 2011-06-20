@@ -315,7 +315,7 @@ CREATE TABLE `tbl_members_roles_forbidden_pages` (
   `page_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`,`page_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 -- *** STRUCTURE: `tbl_pages` ***
 DROP TABLE IF EXISTS `tbl_pages`;

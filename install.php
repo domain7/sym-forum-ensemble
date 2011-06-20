@@ -210,7 +210,7 @@
 		$conf['members']['activate-account-auto-login'] = 'yes';
 		$conf['dump_db']['path'] = '/workspace/sql';
 		$conf['dump_db']['restore'] = 'yes';
-		$conf['dump_db']['last_sync'] = '2011-06-19T08:26:47-07:00';
+		$conf['dump_db']['last_sync'] = '2011-06-20T06:59:45-07:00';
 		$conf['forum']['discussion-section'] = '2';
 		$conf['forum']['comment-section'] = '3';
 		$conf['forum']['created-by-field'] = '13';
