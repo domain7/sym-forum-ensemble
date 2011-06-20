@@ -487,10 +487,10 @@ CREATE TABLE `sym_fields_checkbox` (
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `sym_fields_checkbox` ***
-INSERT INTO `sym_fields_checkbox` (`id`, `field_id`, `default_state`, `description`) VALUES (2, 11, 'off', 'Send me email when there is important news.');
+INSERT INTO `sym_fields_checkbox` (`id`, `field_id`, `default_state`, `description`) VALUES (5, 11, 'off', 'Send me email when there is important news.');
 INSERT INTO `sym_fields_checkbox` (`id`, `field_id`, `default_state`, `description`) VALUES (3, 17, 'off', 'Pin discussion');
 INSERT INTO `sym_fields_checkbox` (`id`, `field_id`, `default_state`, `description`) VALUES (4, 18, 'off', 'Close this discussion');
 
@@ -517,13 +517,13 @@ CREATE TABLE `sym_fields_input` (
   `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `sym_fields_input` ***
-INSERT INTO `sym_fields_input` (`id`, `field_id`, `validator`) VALUES (5, 1, NULL);
-INSERT INTO `sym_fields_input` (`id`, `field_id`, `validator`) VALUES (6, 7, '/^[^\\s:\\/?#]+:(?:\\/{2,3})?[^\\s.\\/?#]+(?:\\.[^\\s.\\/?#]+)*(?:\\/[^\\s?#]*\\??[^\\s?#]*(#[^\\s#]*)?)?$/');
-INSERT INTO `sym_fields_input` (`id`, `field_id`, `validator`) VALUES (7, 8, NULL);
-INSERT INTO `sym_fields_input` (`id`, `field_id`, `validator`) VALUES (8, 9, NULL);
+INSERT INTO `sym_fields_input` (`id`, `field_id`, `validator`) VALUES (10, 1, NULL);
+INSERT INTO `sym_fields_input` (`id`, `field_id`, `validator`) VALUES (11, 7, '/^[^\\s:\\/?#]+:(?:\\/{2,3})?[^\\s.\\/?#]+(?:\\.[^\\s.\\/?#]+)*(?:\\/[^\\s?#]*\\??[^\\s?#]*(#[^\\s#]*)?)?$/');
+INSERT INTO `sym_fields_input` (`id`, `field_id`, `validator`) VALUES (12, 8, NULL);
+INSERT INTO `sym_fields_input` (`id`, `field_id`, `validator`) VALUES (13, 9, NULL);
 INSERT INTO `sym_fields_input` (`id`, `field_id`, `validator`) VALUES (9, 12, NULL);
 
 -- *** STRUCTURE: `sym_fields_memberactivation` ***
@@ -536,10 +536,10 @@ CREATE TABLE `sym_fields_memberactivation` (
   `deny_login` enum('yes','no') NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- *** DATA: `sym_fields_memberactivation` ***
-INSERT INTO `sym_fields_memberactivation` (`id`, `field_id`, `code_expiry`, `activation_role_id`, `deny_login`) VALUES (2, 6, '1 hour', 1, 'no');
+INSERT INTO `sym_fields_memberactivation` (`id`, `field_id`, `code_expiry`, `activation_role_id`, `deny_login`) VALUES (3, 6, '1 hour', 2, 'no');
 
 -- *** STRUCTURE: `sym_fields_memberemail` ***
 DROP TABLE IF EXISTS `sym_fields_memberemail`;
@@ -548,10 +548,10 @@ CREATE TABLE `sym_fields_memberemail` (
   `field_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- *** DATA: `sym_fields_memberemail` ***
-INSERT INTO `sym_fields_memberemail` (`id`, `field_id`) VALUES (2, 4);
+INSERT INTO `sym_fields_memberemail` (`id`, `field_id`) VALUES (3, 4);
 
 -- *** STRUCTURE: `sym_fields_memberpassword` ***
 DROP TABLE IF EXISTS `sym_fields_memberpassword`;
@@ -564,10 +564,10 @@ CREATE TABLE `sym_fields_memberpassword` (
   `code_expiry` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- *** DATA: `sym_fields_memberpassword` ***
-INSERT INTO `sym_fields_memberpassword` (`id`, `field_id`, `length`, `strength`, `salt`, `code_expiry`) VALUES (2, 3, 6, 'good', 'LXPj5GAJi6fWLY1K', '1 hour');
+INSERT INTO `sym_fields_memberpassword` (`id`, `field_id`, `length`, `strength`, `salt`, `code_expiry`) VALUES (3, 3, 6, 'good', 'LXPj5GAJi6fWLY1K', '1 hour');
 
 -- *** STRUCTURE: `sym_fields_memberrole` ***
 DROP TABLE IF EXISTS `sym_fields_memberrole`;
@@ -577,10 +577,10 @@ CREATE TABLE `sym_fields_memberrole` (
   `default_role` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- *** DATA: `sym_fields_memberrole` ***
-INSERT INTO `sym_fields_memberrole` (`id`, `field_id`, `default_role`) VALUES (2, 5, 1);
+INSERT INTO `sym_fields_memberrole` (`id`, `field_id`, `default_role`) VALUES (3, 5, 3);
 
 -- *** STRUCTURE: `sym_fields_membertimezone` ***
 DROP TABLE IF EXISTS `sym_fields_membertimezone`;
@@ -590,10 +590,10 @@ CREATE TABLE `sym_fields_membertimezone` (
   `available_zones` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- *** DATA: `sym_fields_membertimezone` ***
-INSERT INTO `sym_fields_membertimezone` (`id`, `field_id`, `available_zones`) VALUES (2, 10, 'AFRICA,AMERICA,ANTARCTICA,ARCTIC,ASIA,ATLANTIC,AUSTRALIA,EUROPE,INDIAN,PACIFIC');
+INSERT INTO `sym_fields_membertimezone` (`id`, `field_id`, `available_zones`) VALUES (3, 10, 'AFRICA,AMERICA,ANTARCTICA,ARCTIC,ASIA,ATLANTIC,AUSTRALIA,EUROPE,INDIAN,PACIFIC');
 
 -- *** STRUCTURE: `sym_fields_memberusername` ***
 DROP TABLE IF EXISTS `sym_fields_memberusername`;
@@ -603,10 +603,10 @@ CREATE TABLE `sym_fields_memberusername` (
   `validator` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- *** DATA: `sym_fields_memberusername` ***
-INSERT INTO `sym_fields_memberusername` (`id`, `field_id`, `validator`) VALUES (2, 2, NULL);
+INSERT INTO `sym_fields_memberusername` (`id`, `field_id`, `validator`) VALUES (3, 2, NULL);
 
 -- *** STRUCTURE: `sym_fields_number` ***
 DROP TABLE IF EXISTS `sym_fields_number`;
